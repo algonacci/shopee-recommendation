@@ -1,0 +1,8 @@
+2026/01/08-00:07:55.106 ab78 Reusing MANIFEST C:\Users\Braincore\Documents\GitHub\shopee-recommendation\shopee_profile_data\Default\Session Storage/MANIFEST-000001
+2026/01/08-00:07:55.107 ab78 Recovering log #4
+2026/01/08-00:07:55.108 ab78 Level-0 table #6: started
+2026/01/08-00:07:55.115 ab78 Level-0 table #6: 40721 bytes OK
+2026/01/08-00:07:55.116 ab78 Recovering log #6
+2026/01/08-00:07:55.118 ab78 Reusing old log C:\Users\Braincore\Documents\GitHub\shopee-recommendation\shopee_profile_data\Default\Session Storage/000006.log 
+2026/01/08-00:07:55.122 ab78 Delete type=0 #4
+2026/01/08-00:07:55.122 ab78 Delete type=2 #7

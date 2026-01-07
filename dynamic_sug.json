@@ -1,0 +1,449 @@
+{
+    "bff_meta": null,
+    "error": null,
+    "error_msg": null,
+    "data": {
+        "queries": [
+            {
+                "id": null,
+                "text": "Celana Pants",
+                "pic": [
+                    "id-11134207-7rbkd-m695hd96wvs81f"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbkd-m695hd96wvs81f\",\"image_index\":6,\"item_id\":46451710539,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.40967032313346863,0.5334054231643677,0.06373319029808044,0.5092673301696777],\"offset\":0,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0614680233841574,\"pre_rank_scores\":[0.5259255194346963,0.6528079589498695,0.5942932050482844],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.10167375164006048,\"recall_scores\":0.5927976369857788,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbkd-m695hd96wvs81f\",\"image_index\":6,\"item_id\":46451710539,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.40967032313346863,0.5334054231643677,0.06373319029808044,0.5092673301696777],\"offset\":0,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0614680233841574,\"pre_rank_scores\":[0.5259255194346963,0.6528079589498695,0.5942932050482844],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.10167375164006048,\"recall_scores\":0.5927976369857788,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    46451710539
+                ],
+                "image": "id-11134207-7rbkd-m695hd96wvs81f",
+                "images": [
+                    "id-11134207-7rbkd-m695hd96wvs81f"
+                ],
+                "hint": "Celana Pants",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1669605970
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana Pants Wanita",
+                "pic": [
+                    "id-11134207-7rbkd-m9vnb0fl92zi37"
+                ],
+                "count": null,
+                "tracking": "{\"TRIGGER_K\":\"celana pants\",\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbkd-m9vnb0fl92zi37\",\"image_index\":4,\"item_id\":43606600712,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.2701454162597656,0.37294936180114746,0.05360211431980133,0.6080285906791687],\"offset\":1,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.1232353014832026,\"pre_rank_scores\":[0.5595581372609896,0.6625362755529197,0.6192872310573475],\"queue\":\"KKSIM\",\"rank_score\":0.16117497849866866,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"TRIGGER_K\":\"celana pants\",\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbkd-m9vnb0fl92zi37\",\"image_index\":4,\"item_id\":43606600712,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.2701454162597656,0.37294936180114746,0.05360211431980133,0.6080285906791687],\"offset\":1,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.1232353014832026,\"pre_rank_scores\":[0.5595581372609896,0.6625362755529197,0.6192872310573475],\"queue\":\"KKSIM\",\"rank_score\":0.16117497849866866,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    43606600712
+                ],
+                "image": "id-11134207-7rbkd-m9vnb0fl92zi37",
+                "images": [
+                    "id-11134207-7rbkd-m9vnb0fl92zi37"
+                ],
+                "hint": "Celana Pants Wanita",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1566974020
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana Skena Baggy Jeans",
+                "pic": [
+                    "id-11134207-7rbk5-m6nct5hgokn047"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk5-m6nct5hgokn047\",\"image_index\":2,\"item_id\":26374925302,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.1645643562078476,0.5632150769233704,0.030954798683524132,0.5764356255531311],\"offset\":2,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.1294772180007133,\"pre_rank_scores\":[0.5616872229304348,0.6625561584382041,0.6112870148075361],\"queue\":\"RECFOREST\",\"rank_score\":0.03841049224554777,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk5-m6nct5hgokn047\",\"image_index\":2,\"item_id\":26374925302,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.1645643562078476,0.5632150769233704,0.030954798683524132,0.5764356255531311],\"offset\":2,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.1294772180007133,\"pre_rank_scores\":[0.5616872229304348,0.6625561584382041,0.6112870148075361],\"queue\":\"RECFOREST\",\"rank_score\":0.03841049224554777,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    26374925302
+                ],
+                "image": "id-11134207-7rbk5-m6nct5hgokn047",
+                "images": [
+                    "id-11134207-7rbk5-m6nct5hgokn047"
+                ],
+                "hint": "Celana Skena Baggy Jeans",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1404158930
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana Pants Pria",
+                "pic": [
+                    "id-11134207-7rbk6-m8r5la0crifld3"
+                ],
+                "count": null,
+                "tracking": "{\"TRIGGER_K\":\"celana pants\",\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk6-m8r5la0crifld3\",\"image_index\":7,\"item_id\":43761550527,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.10590711981058121,0.48616793751716614,0.04731833562254906,0.5188826322555542],\"offset\":3,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.1018886071569696,\"pre_rank_scores\":[0.5462923566701141,0.6417754619236445,0.6175671640789914],\"queue\":\"KKSIM\",\"rank_score\":0.029505309739321497,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"TRIGGER_K\":\"celana pants\",\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk6-m8r5la0crifld3\",\"image_index\":7,\"item_id\":43761550527,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.10590711981058121,0.48616793751716614,0.04731833562254906,0.5188826322555542],\"offset\":3,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.1018886071569696,\"pre_rank_scores\":[0.5462923566701141,0.6417754619236445,0.6175671640789914],\"queue\":\"KKSIM\",\"rank_score\":0.029505309739321497,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    43761550527
+                ],
+                "image": "id-11134207-7rbk6-m8r5la0crifld3",
+                "images": [
+                    "id-11134207-7rbk6-m8r5la0crifld3"
+                ],
+                "hint": "Celana Pants Pria",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1521876409
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana Rayon",
+                "pic": [
+                    "sg-11134201-7rbng-m5gx3wujh1347d"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"sg-11134201-7rbng-m5gx3wujh1347d\",\"image_index\":1,\"item_id\":56604053707,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.18747013807296753,0.5870960354804993,0.05723484978079796,0.6623631715774536],\"offset\":4,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.1611590823549132,\"pre_rank_scores\":[0.5815895071391977,0.6624317610192343,0.6304197534770757],\"queue\":\"RECFOREST\",\"rank_score\":0.11777520012145863,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"sg-11134201-7rbng-m5gx3wujh1347d\",\"image_index\":1,\"item_id\":56604053707,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.18747013807296753,0.5870960354804993,0.05723484978079796,0.6623631715774536],\"offset\":4,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.1611590823549132,\"pre_rank_scores\":[0.5815895071391977,0.6624317610192343,0.6304197534770757],\"queue\":\"RECFOREST\",\"rank_score\":0.11777520012145863,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    56604053707
+                ],
+                "image": "sg-11134201-7rbng-m5gx3wujh1347d",
+                "images": [
+                    "sg-11134201-7rbng-m5gx3wujh1347d"
+                ],
+                "hint": "Celana Rayon",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1264693940
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana Pendek Pants",
+                "pic": [
+                    "id-11134207-7rasa-m5cbbull2gsi26"
+                ],
+                "count": null,
+                "tracking": "{\"TRIGGER_K\":\"celana pants\",\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rasa-m5cbbull2gsi26\",\"image_index\":3,\"item_id\":29592862683,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.0894724428653717,0.41289931535720825,0.04641475901007652,0.484016090631485],\"offset\":5,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.1039078074903177,\"pre_rank_scores\":[0.5582897152305445,0.6274321276809277,0.6128802154348145],\"queue\":\"KKSIM\",\"rank_score\":0.018131174652515465,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"TRIGGER_K\":\"celana pants\",\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rasa-m5cbbull2gsi26\",\"image_index\":3,\"item_id\":29592862683,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.0894724428653717,0.41289931535720825,0.04641475901007652,0.484016090631485],\"offset\":5,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.1039078074903177,\"pre_rank_scores\":[0.5582897152305445,0.6274321276809277,0.6128802154348145],\"queue\":\"KKSIM\",\"rank_score\":0.018131174652515465,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    29592862683
+                ],
+                "image": "id-11134207-7rasa-m5cbbull2gsi26",
+                "images": [
+                    "id-11134207-7rasa-m5cbbull2gsi26"
+                ],
+                "hint": "Celana Pendek Pants",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1584808054
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana Beggy Pants Wanita",
+                "pic": [
+                    "id-11134207-7rbk3-m9ally05x1bvc5"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk3-m9ally05x1bvc5\",\"image_index\":5,\"item_id\":43624870221,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.0915316566824913,0.5070856809616089,0.02583172358572483,0.5220602750778198],\"offset\":6,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0843013445847756,\"pre_rank_scores\":[0.5405802582384326,0.6418405352911221,0.6019008890213297],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.019544127952306634,\"recall_scores\":0.5444223284721375,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk3-m9ally05x1bvc5\",\"image_index\":5,\"item_id\":43624870221,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.0915316566824913,0.5070856809616089,0.02583172358572483,0.5220602750778198],\"offset\":6,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0843013445847756,\"pre_rank_scores\":[0.5405802582384326,0.6418405352911221,0.6019008890213297],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.019544127952306634,\"recall_scores\":0.5444223284721375,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    43624870221
+                ],
+                "image": "id-11134207-7rbk3-m9ally05x1bvc5",
+                "images": [
+                    "id-11134207-7rbk3-m9ally05x1bvc5"
+                ],
+                "hint": "Celana Beggy Pants Wanita",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1533959324
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana Pants Highwaist Wanita",
+                "pic": [
+                    "id-11134207-7rbk3-m9zswr45oqpf17"
+                ],
+                "count": null,
+                "tracking": "{\"TRIGGER_K\":\"celana pants\",\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk3-m9zswr45oqpf17\",\"image_index\":9,\"item_id\":44256589453,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.18045881390571594,0.5620827674865723,0.06444383412599564,0.5609701871871948],\"offset\":7,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.0749243131696833,\"pre_rank_scores\":[0.5297719014284681,0.6402439902275914,0.6051677472482242],\"queue\":\"KKSIM\",\"rank_score\":0.11322179763761848,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"TRIGGER_K\":\"celana pants\",\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk3-m9zswr45oqpf17\",\"image_index\":9,\"item_id\":44256589453,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.18045881390571594,0.5620827674865723,0.06444383412599564,0.5609701871871948],\"offset\":7,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.0749243131696833,\"pre_rank_scores\":[0.5297719014284681,0.6402439902275914,0.6051677472482242],\"queue\":\"KKSIM\",\"rank_score\":0.11322179763761848,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    44256589453
+                ],
+                "image": "id-11134207-7rbk3-m9zswr45oqpf17",
+                "images": [
+                    "id-11134207-7rbk3-m9zswr45oqpf17"
+                ],
+                "hint": "Celana Pants Highwaist Wanita",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1566974020
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana 100 Dapat 3",
+                "pic": [
+                    "id-11134207-7rbkd-m9bbsbiw0z59d7"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbkd-m9bbsbiw0z59d7\",\"image_index\":5,\"item_id\":28835872574,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.05151832848787308,0.4810595214366913,0.0407574400305748,0.5644592046737671],\"offset\":8,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0579854098507722,\"pre_rank_scores\":[0.520632775530981,0.646870404646975,0.569860592108756],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.013888500701027163,\"recall_scores\":0.6026572585105896,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbkd-m9bbsbiw0z59d7\",\"image_index\":5,\"item_id\":28835872574,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.05151832848787308,0.4810595214366913,0.0407574400305748,0.5644592046737671],\"offset\":8,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0579854098507722,\"pre_rank_scores\":[0.520632775530981,0.646870404646975,0.569860592108756],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.013888500701027163,\"recall_scores\":0.6026572585105896,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    28835872574
+                ],
+                "image": "id-11134207-7rbkd-m9bbsbiw0z59d7",
+                "images": [
+                    "id-11134207-7rbkd-m9bbsbiw0z59d7"
+                ],
+                "hint": "Celana 100 Dapat 3",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    10711442
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Glad2glow Perfect Cover Cushion",
+                "pic": [
+                    "id-11134207-7rbk9-m9qzezv3x44zee"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk9-m9qzezv3x44zee\",\"image_index\":2,\"item_id\":29905930406,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.08911634236574173,0.30206960439682007,0.009696879424154758,0.39235106110572815],\"offset\":9,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":0.994748200967224,\"pre_rank_scores\":[0.5234133180052151,0.5798387804824321,0.5051474028566564],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.011285552975524846,\"recall_scores\":0.6566632986068726,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk9-m9qzezv3x44zee\",\"image_index\":2,\"item_id\":29905930406,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.08911634236574173,0.30206960439682007,0.009696879424154758,0.39235106110572815],\"offset\":9,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":0.994748200967224,\"pre_rank_scores\":[0.5234133180052151,0.5798387804824321,0.5051474028566564],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.011285552975524846,\"recall_scores\":0.6566632986068726,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    29905930406
+                ],
+                "image": "id-11134207-7rbk9-m9qzezv3x44zee",
+                "images": [
+                    "id-11134207-7rbk9-m9qzezv3x44zee"
+                ],
+                "hint": "Glad2glow Perfect Cover Cushion",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    0
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana Jeans High Waist Wanita",
+                "pic": [
+                    "id-11134207-7rbk3-m9wpzgzgdq8t84"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk3-m9wpzgzgdq8t84\",\"image_index\":7,\"item_id\":44417092704,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.12336438149213791,0.5369279384613037,0.01614592783153057,0.5668476223945618],\"offset\":10,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.145169449427709,\"pre_rank_scores\":[0.5836913719916017,0.6730606970128779,0.590740102847772],\"queue\":\"RECFOREST\",\"rank_score\":0.06792065725309246,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk3-m9wpzgzgdq8t84\",\"image_index\":7,\"item_id\":44417092704,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.12336438149213791,0.5369279384613037,0.01614592783153057,0.5668476223945618],\"offset\":10,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.145169449427709,\"pre_rank_scores\":[0.5836913719916017,0.6730606970128779,0.590740102847772],\"queue\":\"RECFOREST\",\"rank_score\":0.06792065725309246,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    44417092704
+                ],
+                "image": "id-11134207-7rbk3-m9wpzgzgdq8t84",
+                "images": [
+                    "id-11134207-7rbk3-m9wpzgzgdq8t84"
+                ],
+                "hint": "Celana Jeans High Waist Wanita",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    684414356
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Stelan Remaja",
+                "pic": [
+                    "id-11134207-7rasd-m41glb1abfkmf4"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rasd-m41glb1abfkmf4\",\"image_index\":7,\"item_id\":27221294438,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.10046263784170151,0.3673815131187439,0.011364697478711605,0.5037041902542114],\"offset\":11,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0740994527499934,\"pre_rank_scores\":[0.5685410922387846,0.6291629169322239,0.543919944822056],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.013694186399177468,\"recall_scores\":0.5385124683380127,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rasd-m41glb1abfkmf4\",\"image_index\":7,\"item_id\":27221294438,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.10046263784170151,0.3673815131187439,0.011364697478711605,0.5037041902542114],\"offset\":11,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0740994527499934,\"pre_rank_scores\":[0.5685410922387846,0.6291629169322239,0.543919944822056],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.013694186399177468,\"recall_scores\":0.5385124683380127,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    27221294438
+                ],
+                "image": "id-11134207-7rasd-m41glb1abfkmf4",
+                "images": [
+                    "id-11134207-7rasd-m41glb1abfkmf4"
+                ],
+                "hint": "Stelan Remaja",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1177673752
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana Cutbray Cewek",
+                "pic": [
+                    "id-11134207-7rbk1-makyckq3tu23d4"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk1-makyckq3tu23d4\",\"image_index\":9,\"item_id\":42203622895,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.0791907012462616,0.4678780436515808,0.031991153955459595,0.5011423230171204],\"offset\":12,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.1024011152150832,\"pre_rank_scores\":[0.5428405557101564,0.6588530395639064,0.6227694869700862],\"queue\":\"RECFOREST\",\"rank_score\":0.020887121135795245,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk1-makyckq3tu23d4\",\"image_index\":9,\"item_id\":42203622895,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.0791907012462616,0.4678780436515808,0.031991153955459595,0.5011423230171204],\"offset\":12,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.1024011152150832,\"pre_rank_scores\":[0.5428405557101564,0.6588530395639064,0.6227694869700862],\"queue\":\"RECFOREST\",\"rank_score\":0.020887121135795245,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    42203622895
+                ],
+                "image": "id-11134207-7rbk1-makyckq3tu23d4",
+                "images": [
+                    "id-11134207-7rbk1-makyckq3tu23d4"
+                ],
+                "hint": "Celana Cutbray Cewek",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    0
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Celana Motif Coquette",
+                "pic": [
+                    "id-11134207-7rbk7-m7dwl2pwss2v85"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk7-m7dwl2pwss2v85\",\"image_index\":4,\"item_id\":42558130260,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.12769640982151031,0.3902323842048645,0.020967835560441017,0.48521363735198975],\"offset\":13,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.1014048082269814,\"pre_rank_scores\":[0.5819350629539425,0.620129300630762,0.5646292857219448],\"queue\":\"RECFOREST\",\"rank_score\":0.06604773626455349,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk7-m7dwl2pwss2v85\",\"image_index\":4,\"item_id\":42558130260,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.12769640982151031,0.3902323842048645,0.020967835560441017,0.48521363735198975],\"offset\":13,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.1014048082269814,\"pre_rank_scores\":[0.5819350629539425,0.620129300630762,0.5646292857219448],\"queue\":\"RECFOREST\",\"rank_score\":0.06604773626455349,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"subgrp_id\":null,\"timestamp\":1767789101}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    42558130260
+                ],
+                "image": "id-11134207-7rbk7-m7dwl2pwss2v85",
+                "images": [
+                    "id-11134207-7rbk7-m7dwl2pwss2v85"
+                ],
+                "hint": "Celana Motif Coquette",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1568897368
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            }
+        ],
+        "has_more": true,
+        "tracking": "{\"ab_sign\":[554522],\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"timestamp\":1767789101}",
+        "refresh_interval_sec": 360,
+        "ss_session_id": "d32606ef-1254-4968-9f52-cdbdf0be69be"
+    },
+    "search_response_info": "{\"ab_sign\":[554522],\"reqid\":\"bff-search_id_sg10_10.188.80.163_{b11ba3af47cb79678578954608697b00:020000f6744b3959:010001afa3befad4}_search-guidebff-live-id.251125162628303084.251125163039162299\",\"ss_session_id\":\"d32606ef-1254-4968-9f52-cdbdf0be69be\",\"timestamp\":1767789101}",
+    "bff_response_info": "{}"
+}

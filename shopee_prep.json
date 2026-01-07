@@ -1,0 +1,40 @@
+{
+    "url": "https://shopee.co.id/api/v4/recommend/recommend?bundle=top_products_homepage&limit=20",
+    "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+        "sec-ch-ua-mobile": "?0",
+        "x-api-source": "pc",
+        "x-requested-with": "XMLHttpRequest",
+        "accept": "application/json",
+        "content-type": "application/json",
+        "af-ac-enc-dat": "7b7105ea35ca70c6",
+        "x-csrftoken": "um75D4NuthDqSKOMIaQxATJ3J35FSpBZ",
+        "af-ac-enc-sz-token": "DxxeU4mHUh7huvaf7K1imA==|6khGKQ3EhK7IL3I7hWYvei36DAbgc6MzwB7tnclknAEaWqNzY8XhDPAd2tDkvvZirv66+nERMAJDFqegaIsV6A==|8WOUlEItvqdER8GV|08|3",
+        "x-sap-ri": "7a4b5e69e190574e6d3d943d08012ef47b84ecf32f5f3a6bfe84",
+        "accept-language": "id-ID",
+        "referer": "https://shopee.co.id/",
+        "x-sz-sdk-version": "1.12.26-5",
+        "x-shopee-language": "id",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "x-sap-sec": "G32DGJnxZypdgorJGs6dPXTsNEkV87NtTC+Uzgl1xCrw7sOTqVlqQF+IaUW889ORN4THB6QqyOQ24eRK6RTl8j+SnvqhXtOLq6/gaUuOsIArU6lYFnCMdVK3wtb2tCtL8yhGtQ/kSuuHUF1Ur3RK6h527oY85oTxL9RLd/9Zpbt/ge6SRLuzHzepXl0OipXYW2Lk/AtZO3RyhF+wDMnkJJFucnQekmiX4dxvOOXZnotJfKW46HfhZdEOYZdhS6wv3DgFrglCKG/QdI5ZmwOxs5IeajA231V69jQmWUbIVxVNpeqpaFdfYnwOBp3Ib+a2xAjjTEGmRkQo8CXgLo8NFCudKXfky38R+F86p4JGUM5rFF4Z+N4Sj9A9P5YmaIYvo/QNTdK5SuJ99COqeEQwkNHRr48J1mpLNcVRWt5kPCwWbHRLd4/kZjeGHBSRZgVwO2vpu3MZcOML2jGNmoHfb/F3nZh555q7V4m/dYyDZFi3J7ALTeRGll5fczLZkaqWk7gY0BFG48Nt6RpurCcgRNfsGqobjaVNxvJZS/5HjHPoKf3HoIfXuyCPG8ts6IR1N9w+PfkUdzVmCyAsiPwfPsr0SuTmAlYrOZj+rUClFpcYF53rkUN4kp2DVUAydC3/s+ljz1kolPhPIdUmqM5WwsHqGy0CwjmXnBSzAxOyPeg5RyfS2YIx8jptw+Hr/lF/Tdu1gCdIFNwwXfSLk96bfcxRBw2IRfo0waIYczWITlZdprMagW4hcGYU2iU6LYRrXSM+MMukbVRvs0AZrVMeaYMzqLq7+IbmrFf2p353fBcq3Jc5/TBq0AHfv54dmaKFut6WnxIYinG5VutPuBpWKVMFoyCmWfVkn8dFvVZbhN8fQwIwSBHt7KgfVncfexVCzkZ9p641nGq28Oc2I389i17dhrF2A6a9bWPqPPzyblvuh0Vyqjx7/oHAzf6bQknSIg1qLxDw4WbAAk35ju6p/+sY2yVSQXKpbSb1MhOKXdjRzA4gcPohrQTFfQeFkHk55jpMNjzH6qlomVg+MLNS3GpDfc9cK/IDr4UEmgyi0Wr+0K6avdu95Sx+xiEsv5JMAYKEf/qajZNmzYfN49AwTF8RDK3ljWN5ExZFA7HtcsLFi3akh3Eg2QlIxAwwJ97PZ/IWG6zir+z5N1f32S0q7gvYeHaVXXPem/oCwaB6TdIxituGqj1vi31W9ePYrZm21jiqX7L+vJWkPt4qQzlfiiZ+bZlHvz6+6Ry7xLXBkcOxdQR46jHmItOFESYL0cPQw9UPkUjCVGexqTE5/mKkYvRBc66v6H4Tf0diI5IowIIliNWrCHa5dGUTrqoZav7oA2qMx8ALA+W9CJtyK3ZDTdXRzOvDCjq53AQAhQJPSzRV+hs9xIuJIhEsMFeMOoHIOjmtk884vwolds6ndW5XRSDKO7/hZ/+70zSQje2j7kptdqJTJ8lefmQzxTzvBlmnZmk1jvUUWcNDUCn2P3JCuhXg7P3LaYyHLfG8VFPc8ifobpxhruRS2O3sKkjA0HZbn9sK9RjtAin5Q/TqI3+G2sxlmEUEQeksdy3yoq494BwDAAcN0X1tI7JEzyempAqt9qMgyBEJGdVycpqGI57IgVIsRqZj5cCmhjd3t0yIWk+b/l6t51QRnswyvWebM4+UWJeCEFlN2gU2hMh8bhwnrQG+ICNPsTcwRS5nLxpZkKMGh3dI7p7FD6ARUDezYuomGqTskOAE876pCUEncbYFDpArqkhvb60gYnaskNAE8ezpCbxncVdFDpwrqkgzYS+gYY9skIpdFON6"
+    },
+    "cookies": {
+        "SPC_F": "41TwmuNiZPseQ1MNoYcdh8vExz9JhfJO",
+        "REC_T_ID": "60ee1247-ebc0-11f0-85b2-da56c1edb0f5",
+        "SPC_R_T_ID": "VpE76gy4sqUBiozjTWI9A0cvawSN7hviz6dNq5/ZqKNas7fkKbbwYqrDYQ8riVOlBZkexSpNlWafFpjPBAx3NMBVuIk2eLavWIVHWGFcwTpu+UeqJkpbc9gExmFWj93PuCIYnd7QU2tAwroJFGSEzg==",
+        "SPC_R_T_IV": "dmVtZ2Uxc2syM1dCdEE3VA==",
+        "SPC_T_ID": "VpE76gy4sqUBiozjTWI9A0cvawSN7hviz6dNq5/ZqKNas7fkKbbwYqrDYQ8riVOlBZkexSpNlWafFpjPBAx3NMBVuIk2eLavWIVHWGFcwTpu+UeqJkpbc9gExmFWj93PuCIYnd7QU2tAwroJFGSEzg==",
+        "SPC_T_IV": "dmVtZ2Uxc2syM1dCdEE3VA==",
+        "SPC_SI": "Lj5eaQAAAABMYUNsNzFnYmNqAAAAAAAAdWtXZE90cmw=",
+        "SPC_SEC_SI": "v1-Rkw3aTZ2STZkVVBhTFJCUf10vjuFb6Y+RxrEIuZkQhwCK0PwslIAGFAgRLWdP48Ve9DmxlUYkHoW50Hmt/VSSbOOUZu0pUZwnX0kxdzoHW4=",
+        "_QPWSDCXHZQA": "4784ae60-6710-4b2f-b959-801e7a61aaa2",
+        "REC7iLP4Q": "85b35988-32e7-4163-9994-fcf022dc748f",
+        "SPC_CLIENTID": "NDFUd211TmlaUHNltruygumscprhblox",
+        "csrftoken": "um75D4NuthDqSKOMIaQxATJ3J35FSpBZ",
+        "_sapid": "cc362bd7747c75bec96be7d52157a617272462095c0a2ee2db02f8b6",
+        "SPC_DT_TRANSLATED": "0",
+        "shopee_webUnique_ccd": "vM2fj039GQkb4N%2Fi0KZAFw%3D%3D%7C6EhGKQ3EhK7IL3I7hWYvei36DAbgc6MzwB7tnZZWmQEaWqNzY8XhDPAd2tDkvvZirv66%2BnERMAJDlqagaIsV6A%3D%3D%7C8WOUlEItvqdER8GV%7C08%7C3",
+        "ds": "41e4eb51df3708f30643f990b8edf5a4"
+    }
+}

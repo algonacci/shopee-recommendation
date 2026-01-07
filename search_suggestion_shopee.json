@@ -1,0 +1,449 @@
+{
+    "bff_meta": null,
+    "error": null,
+    "error_msg": null,
+    "data": {
+        "queries": [
+            {
+                "id": null,
+                "text": "Celana Pants",
+                "pic": [
+                    "id-11134207-7ra0t-mdtajus2plbj67"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7ra0t-mdtajus2plbj67\",\"image_index\":4,\"item_id\":55450457075,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.062448691576719284,0.5025878548622131,0.03221752122044563,0.5429670810699463],\"offset\":0,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0733578713330254,\"pre_rank_scores\":[0.5360645561243106,0.6858769675475476,0.5775938195941598],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.01380785536926332,\"recall_scores\":0.6405425071716309,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7ra0t-mdtajus2plbj67\",\"image_index\":4,\"item_id\":55450457075,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.062448691576719284,0.5025878548622131,0.03221752122044563,0.5429670810699463],\"offset\":0,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0733578713330254,\"pre_rank_scores\":[0.5360645561243106,0.6858769675475476,0.5775938195941598],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.01380785536926332,\"recall_scores\":0.6405425071716309,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    55450457075
+                ],
+                "image": "id-11134207-7ra0t-mdtajus2plbj67",
+                "images": [
+                    "id-11134207-7ra0t-mdtajus2plbj67"
+                ],
+                "hint": "Celana Pants",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1525048049
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Dompet Remaja Wanita Korea Kekinian",
+                "pic": [
+                    "sg-11134201-7rfg8-m9i7ouu2t0o71e"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"sg-11134201-7rfg8-m9i7ouu2t0o71e\",\"image_index\":1,\"item_id\":28336377778,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.0795140340924263,0.36311113834381104,0.030767373740673065,0.5141619443893433],\"offset\":1,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.1116460446471381,\"pre_rank_scores\":[0.5934345760212617,0.5784054473658734,0.6232191644103909],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.04136465137945874,\"recall_scores\":0.5716005563735962,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"sg-11134201-7rfg8-m9i7ouu2t0o71e\",\"image_index\":1,\"item_id\":28336377778,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.0795140340924263,0.36311113834381104,0.030767373740673065,0.5141619443893433],\"offset\":1,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.1116460446471381,\"pre_rank_scores\":[0.5934345760212617,0.5784054473658734,0.6232191644103909],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.04136465137945874,\"recall_scores\":0.5716005563735962,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    28336377778
+                ],
+                "image": "sg-11134201-7rfg8-m9i7ouu2t0o71e",
+                "images": [
+                    "sg-11134201-7rfg8-m9i7ouu2t0o71e"
+                ],
+                "hint": "Dompet Remaja Wanita Korea Kekinian",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1340535918
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "iPhone 13 128 Ibox",
+                "pic": [
+                    "id-11134207-7ra0o-mdr9w5svr3xw65"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7ra0o-mdr9w5svr3xw65\",\"image_index\":1,\"item_id\":11764863710,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.06573735177516937,0.22160953283309937,0.0033311243169009686,0.28451699018478394],\"offset\":2,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.2062457300497458,\"pre_rank_scores\":[0.6533344753154716,0.5082056046307927,0.44567676085132046],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.012641410137855233,\"recall_scores\":0.5687175393104553,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7ra0o-mdr9w5svr3xw65\",\"image_index\":1,\"item_id\":11764863710,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.06573735177516937,0.22160953283309937,0.0033311243169009686,0.28451699018478394],\"offset\":2,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.2062457300497458,\"pre_rank_scores\":[0.6533344753154716,0.5082056046307927,0.44567676085132046],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.012641410137855233,\"recall_scores\":0.5687175393104553,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    11764863710
+                ],
+                "image": "id-11134207-7ra0o-mdr9w5svr3xw65",
+                "images": [
+                    "id-11134207-7ra0o-mdr9w5svr3xw65"
+                ],
+                "hint": "iPhone 13 128 Ibox",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    241308147
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Tas Coraldaisy Official Store",
+                "pic": [
+                    "id-11134207-7ra0r-md9xjcpyv3mgd5"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7ra0r-md9xjcpyv3mgd5\",\"image_index\":0,\"item_id\":49453010586,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.06493903696537018,0.4502900242805481,0.012977439910173416,0.4721408784389496],\"offset\":3,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.145649488974111,\"pre_rank_scores\":[0.6075975662133769,0.6469504456657585,0.5133584549329108],\"queue\":\"RECFOREST\",\"rank_score\":0.012997385309397012,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7ra0r-md9xjcpyv3mgd5\",\"image_index\":0,\"item_id\":49453010586,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.06493903696537018,0.4502900242805481,0.012977439910173416,0.4721408784389496],\"offset\":3,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.145649488974111,\"pre_rank_scores\":[0.6075975662133769,0.6469504456657585,0.5133584549329108],\"queue\":\"RECFOREST\",\"rank_score\":0.012997385309397012,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    49453010586
+                ],
+                "image": "id-11134207-7ra0r-md9xjcpyv3mgd5",
+                "images": [
+                    "id-11134207-7ra0r-md9xjcpyv3mgd5"
+                ],
+                "hint": "Tas Coraldaisy Official Store",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1684677537
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Tas Wanita",
+                "pic": [
+                    "id-11134207-7rbka-m8a5356xod8xa6"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbka-m8a5356xod8xa6\",\"image_index\":9,\"item_id\":40756970130,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.0728820338845253,0.3042588531970978,0.025777433067560196,0.4272732138633728],\"offset\":4,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":0.9936798961415859,\"pre_rank_scores\":[0.4810577582879716,0.5813234585625945,0.6127963236285903],\"queue\":\"RECFOREST\",\"rank_score\":0.03930076783071023,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbka-m8a5356xod8xa6\",\"image_index\":9,\"item_id\":40756970130,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.0728820338845253,0.3042588531970978,0.025777433067560196,0.4272732138633728],\"offset\":4,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":0.9936798961415859,\"pre_rank_scores\":[0.4810577582879716,0.5813234585625945,0.6127963236285903],\"queue\":\"RECFOREST\",\"rank_score\":0.03930076783071023,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    40756970130
+                ],
+                "image": "id-11134207-7rbka-m8a5356xod8xa6",
+                "images": [
+                    "id-11134207-7rbka-m8a5356xod8xa6"
+                ],
+                "hint": "Tas Wanita",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1570446295
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Baju ORI",
+                "pic": [
+                    "id-11134207-7rbkd-m6xtfq8snrwpc7"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbkd-m6xtfq8snrwpc7\",\"image_index\":0,\"item_id\":52152800113,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.0635625347495079,0.31042060256004333,0.020505184307694435,0.4504235088825226],\"offset\":5,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0457633309979815,\"pre_rank_scores\":[0.5661506689324078,0.48588920886837683,0.5544302525069847],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.012718785825206259,\"recall_scores\":0.5916759967803955,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbkd-m6xtfq8snrwpc7\",\"image_index\":0,\"item_id\":52152800113,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.0635625347495079,0.31042060256004333,0.020505184307694435,0.4504235088825226],\"offset\":5,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0457633309979815,\"pre_rank_scores\":[0.5661506689324078,0.48588920886837683,0.5544302525069847],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.012718785825206259,\"recall_scores\":0.5916759967803955,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    52152800113
+                ],
+                "image": "id-11134207-7rbkd-m6xtfq8snrwpc7",
+                "images": [
+                    "id-11134207-7rbkd-m6xtfq8snrwpc7"
+                ],
+                "hint": "Baju ORI",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1589016522
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Botol Minum Stainless Tahan Dingin Dan Panas",
+                "pic": [
+                    "id-11134207-7ra0t-md8pw3bzm59j26"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7ra0t-md8pw3bzm59j26\",\"image_index\":7,\"item_id\":54051443619,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.06977529078722,0.3138456344604492,0.011357217095792294,0.3733353018760681],\"offset\":6,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0263107278874926,\"pre_rank_scores\":[0.5482801261412253,0.5565761550495408,0.523807388875682],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.011312002363790543,\"recall_scores\":0.6152942180633545,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7ra0t-md8pw3bzm59j26\",\"image_index\":7,\"item_id\":54051443619,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.06977529078722,0.3138456344604492,0.011357217095792294,0.3733353018760681],\"offset\":6,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0263107278874926,\"pre_rank_scores\":[0.5482801261412253,0.5565761550495408,0.523807388875682],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.011312002363790543,\"recall_scores\":0.6152942180633545,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    54051443619
+                ],
+                "image": "id-11134207-7ra0t-md8pw3bzm59j26",
+                "images": [
+                    "id-11134207-7ra0t-md8pw3bzm59j26"
+                ],
+                "hint": "Botol Minum Stainless Tahan Dingin Dan Panas",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1664985607
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Glad2glow Perfect Cover Cushion",
+                "pic": [
+                    "id-11134207-7rbk9-m9qzezv3x44zee"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk9-m9qzezv3x44zee\",\"image_index\":2,\"item_id\":29905930406,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.07452604174613953,0.39450886845588684,0.018620314076542854,0.462551087141037],\"offset\":7,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.0774059358412655,\"pre_rank_scores\":[0.5920668012527789,0.5662577159855277,0.5049800427321878],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.039008634970757385,\"recall_scores\":0.6021350622177124,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk9-m9qzezv3x44zee\",\"image_index\":2,\"item_id\":29905930406,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.07452604174613953,0.39450886845588684,0.018620314076542854,0.462551087141037],\"offset\":7,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.0774059358412655,\"pre_rank_scores\":[0.5920668012527789,0.5662577159855277,0.5049800427321878],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.039008634970757385,\"recall_scores\":0.6021350622177124,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    29905930406
+                ],
+                "image": "id-11134207-7rbk9-m9qzezv3x44zee",
+                "images": [
+                    "id-11134207-7rbk9-m9qzezv3x44zee"
+                ],
+                "hint": "Glad2glow Perfect Cover Cushion",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    0
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Kipas Angin Portable Goojodoq",
+                "pic": [
+                    "sg-11134201-7rdw9-mcqjkg4zg2jq5c"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"sg-11134201-7rdw9-mcqjkg4zg2jq5c\",\"image_index\":9,\"item_id\":27365446848,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.03564809262752533,0.49609240889549255,0.038966476917266846,0.49277132749557495],\"offset\":8,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0451376997237705,\"pre_rank_scores\":[0.4944229241136172,0.6663220632715119,0.5903643062002002],\"queue\":\"RECFOREST\",\"rank_score\":0.011485525902827398,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"sg-11134201-7rdw9-mcqjkg4zg2jq5c\",\"image_index\":9,\"item_id\":27365446848,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.03564809262752533,0.49609240889549255,0.038966476917266846,0.49277132749557495],\"offset\":8,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0451376997237705,\"pre_rank_scores\":[0.4944229241136172,0.6663220632715119,0.5903643062002002],\"queue\":\"RECFOREST\",\"rank_score\":0.011485525902827398,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    27365446848
+                ],
+                "image": "sg-11134201-7rdw9-mcqjkg4zg2jq5c",
+                "images": [
+                    "sg-11134201-7rdw9-mcqjkg4zg2jq5c"
+                ],
+                "hint": "Kipas Angin Portable Goojodoq",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    0
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Basreng 1 Kilo",
+                "pic": [
+                    "id-11134207-7rbk9-m9kmk6y1sgel06"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk9-m9kmk6y1sgel06\",\"image_index\":7,\"item_id\":43667552320,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.048027411103248596,0.5045166611671448,0.042950600385665894,0.5387914776802063],\"offset\":9,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0863278082824608,\"pre_rank_scores\":[0.5158240328397184,0.6983238651767527,0.6835398945907357],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.010597140077417718,\"recall_scores\":0.6449904441833496,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk9-m9kmk6y1sgel06\",\"image_index\":7,\"item_id\":43667552320,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.048027411103248596,0.5045166611671448,0.042950600385665894,0.5387914776802063],\"offset\":9,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0863278082824608,\"pre_rank_scores\":[0.5158240328397184,0.6983238651767527,0.6835398945907357],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.010597140077417718,\"recall_scores\":0.6449904441833496,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    43667552320
+                ],
+                "image": "id-11134207-7rbk9-m9kmk6y1sgel06",
+                "images": [
+                    "id-11134207-7rbk9-m9kmk6y1sgel06"
+                ],
+                "hint": "Basreng 1 Kilo",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1534419796
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Sandal",
+                "pic": [
+                    "id-11134207-7r98u-lx0txh4fovccbb"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7r98u-lx0txh4fovccbb\",\"image_index\":2,\"item_id\":57303433695,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.06792856007814407,0.3331625163555145,0.03162793070077896,0.48685765266418457],\"offset\":10,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.1001575506318908,\"pre_rank_scores\":[0.5710077558287027,0.5940658683378593,0.6008203073282516],\"queue\":\"HOTKW\",\"rank_score\":0.0376323504490642,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7r98u-lx0txh4fovccbb\",\"image_index\":2,\"item_id\":57303433695,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.06792856007814407,0.3331625163555145,0.03162793070077896,0.48685765266418457],\"offset\":10,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.1001575506318908,\"pre_rank_scores\":[0.5710077558287027,0.5940658683378593,0.6008203073282516],\"queue\":\"HOTKW\",\"rank_score\":0.0376323504490642,\"recall_scores\":0,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    57303433695
+                ],
+                "image": "id-11134207-7r98u-lx0txh4fovccbb",
+                "images": [
+                    "id-11134207-7r98u-lx0txh4fovccbb"
+                ],
+                "hint": "Sandal",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    40470335
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Sandal Selop Pria Terbaru 2025",
+                "pic": [
+                    "sg-11134201-7rd4x-m6rpl97i1y8946"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"sg-11134201-7rd4x-m6rpl97i1y8946\",\"image_index\":8,\"item_id\":53753561254,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.05003013089299202,0.43138477206230164,0.033276673406362534,0.4896429479122162],\"offset\":11,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0984893936861215,\"pre_rank_scores\":[0.5519792002615891,0.6701394581801492,0.6308895907583925],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.011579049281036178,\"recall_scores\":0.5755937695503235,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"sg-11134201-7rd4x-m6rpl97i1y8946\",\"image_index\":8,\"item_id\":53753561254,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.05003013089299202,0.43138477206230164,0.033276673406362534,0.4896429479122162],\"offset\":11,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0984893936861215,\"pre_rank_scores\":[0.5519792002615891,0.6701394581801492,0.6308895907583925],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.011579049281036178,\"recall_scores\":0.5755937695503235,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    53753561254
+                ],
+                "image": "sg-11134201-7rd4x-m6rpl97i1y8946",
+                "images": [
+                    "sg-11134201-7rd4x-m6rpl97i1y8946"
+                ],
+                "hint": "Sandal Selop Pria Terbaru 2025",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1633550009
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Hand Body Pemutih Badan Permanen BPOM 100% ORI",
+                "pic": [
+                    "id-11134207-7rbk0-m7q76gzdcia844"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk0-m7q76gzdcia844\",\"image_index\":1,\"item_id\":41018618061,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.03637395426630974,0.4184468388557434,0.03038703463971615,0.45469510555267334],\"offset\":12,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0407550686564762,\"pre_rank_scores\":[0.48003499967416546,0.6006650574374011,0.686840494055747],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.010993453790643756,\"recall_scores\":0.6327268481254578,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7rbk0-m7q76gzdcia844\",\"image_index\":1,\"item_id\":41018618061,\"merge_func_name\":\"ads\",\"model_name\":null,\"model_scores\":[0.03637395426630974,0.4184468388557434,0.03038703463971615,0.45469510555267334],\"offset\":12,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.35,\"w5\":0.1555,\"w6\":0.1777},\"pre_rank_merge_score\":1.0407550686564762,\"pre_rank_scores\":[0.48003499967416546,0.6006650574374011,0.686840494055747],\"queue\":\"DEEP_U2K#0\",\"rank_score\":0.010993453790643756,\"recall_scores\":0.6327268481254578,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    41018618061
+                ],
+                "image": "id-11134207-7rbk0-m7q76gzdcia844",
+                "images": [
+                    "id-11134207-7rbk0-m7q76gzdcia844"
+                ],
+                "hint": "Hand Body Pemutih Badan Permanen BPOM 100% ORI",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    1609547398
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            },
+            {
+                "id": null,
+                "text": "Sedal Cewek Kekinian",
+                "pic": [
+                    "id-11134207-7ra0m-mbmitls3x6ti53"
+                ],
+                "count": null,
+                "tracking": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7ra0m-mbmitls3x6ti53\",\"image_index\":1,\"item_id\":41906730804,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.06732232123613358,0.3401698172092438,0.03234736621379852,0.5204585790634155],\"offset\":13,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.0752922979549848,\"pre_rank_scores\":[0.5605659218898872,0.6386556282358063,0.5811021964888182],\"queue\":\"DEEP_U2K_MULTI#1\",\"rank_score\":0.0370609012971591,\"recall_scores\":0.4432262182235718,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "search_info": "{\"ab_sign\":[554522],\"brand_ads_boosted\":0,\"image\":\"id-11134207-7ra0m-mbmitls3x6ti53\",\"image_index\":1,\"item_id\":41906730804,\"merge_func_name\":\"base\",\"model_name\":null,\"model_scores\":[0.06732232123613358,0.3401698172092438,0.03234736621379852,0.5204585790634155],\"offset\":13,\"param_dict\":{\"w1\":0,\"w2\":1,\"w3\":1,\"w4\":0.09,\"w5\":0.075,\"w6\":0.09},\"pre_rank_merge_score\":1.0752922979549848,\"pre_rank_scores\":[0.5605659218898872,0.6386556282358063,0.5811021964888182],\"queue\":\"DEEP_U2K_MULTI#1\",\"rank_score\":0.0370609012971591,\"recall_scores\":0.4432262182235718,\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"subgrp_id\":null,\"timestamp\":1767787282}",
+                "bff_info": "{}",
+                "icon_code": 0,
+                "item_ids": [
+                    41906730804
+                ],
+                "image": "id-11134207-7ra0m-mbmitls3x6ti53",
+                "images": [
+                    "id-11134207-7ra0m-mbmitls3x6ti53"
+                ],
+                "hint": "Sedal Cewek Kekinian",
+                "prefill_icon": null,
+                "prefill_icon_type": null,
+                "prefill_icon_height": null,
+                "prefill_icon_width": null,
+                "promotion_query": null,
+                "extra_query_condition": null,
+                "shop_ids": [
+                    400299143
+                ],
+                "query_labels": "",
+                "rewrite_keyword": ""
+            }
+        ],
+        "has_more": true,
+        "tracking": "{\"ab_sign\":[554522],\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"timestamp\":1767787282}",
+        "refresh_interval_sec": 360,
+        "ss_session_id": "f731cf1d-bedf-47d6-a222-583651a0a0a3"
+    },
+    "search_response_info": "{\"ab_sign\":[554522],\"reqid\":\"bff-search_id_sg10_10.188.27.94_{b11ba3af47cb0cfb80d74e9767d1fb00:020000ecf0a0d151:010001ab71a65554}_search-guidebff-live-id.251125162628303084.251227012245486757\",\"ss_session_id\":\"f731cf1d-bedf-47d6-a222-583651a0a0a3\",\"timestamp\":1767787282}",
+    "bff_response_info": "{}"
+}

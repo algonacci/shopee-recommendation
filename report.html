@@ -1,0 +1,2298 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shopee Intel Dashboard</title>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --primary: #ee4d2d;
+                --secondary: #2673dd;
+                --flash: #eb4d4b;
+                --discover: #6c5ce7;
+                --accent: #2ecc71;
+                --bg: #f8f9fa;
+                --card-bg: #ffffff;
+                --text: #2d3436;
+            }
+            body {
+                font-family: 'Outfit', sans-serif;
+                background-color: var(--bg);
+                color: var(--text);
+                margin: 0;
+                padding: 40px 20px;
+            }
+            .container { max-width: 1400px; margin: 0 auto; }
+            header { text-align: center; margin-bottom: 60px; }
+            h1 { font-size: 3rem; color: var(--primary); margin: 0; letter-spacing: -1px; }
+            .subtitle { opacity: 0.7; font-size: 1.1rem; }
+            
+            /* Category Navigation */
+            .category-scroll {
+                display: flex;
+                overflow-x: auto;
+                gap: 20px;
+                padding: 20px 0;
+                margin-bottom: 50px;
+                scrollbar-width: none;
+                mask-image: linear-gradient(to right, black 85%, transparent);
+            }
+            .category-scroll::-webkit-scrollbar { display: none; }
+            .category-item {
+                flex: 0 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                color: inherit;
+                transition: transform 0.2s;
+            }
+            .category-item:hover { transform: translateY(-5px); }
+            .category-item img {
+                width: 80px;
+                height: 80px;
+                background: white;
+                border-radius: 20px;
+                padding: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+                object-fit: contain;
+                margin-bottom: 10px;
+            }
+            .category-item span { font-size: 0.85rem; font-weight: 600; text-align: center; width: 100px; }
+
+            .section-title {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin: 40px 0 25px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #eee;
+            }
+            .section-title h2 { margin: 0; font-size: 1.8rem; }
+            
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 30px;
+            }
+            
+            .card-link {
+                text-decoration: none;
+                color: inherit;
+                display: block;
+            }
+            
+            .product-card {
+                background: var(--card-bg);
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                border: 1px solid rgba(0,0,0,0.05);
+                height: 100%;
+            }
+            .product-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(238, 77, 45, 0.12);
+            }
+            .flash-sale:hover { box-shadow: 0 20px 40px rgba(235, 77, 75, 0.2); }
+            .daily-discover:hover { box-shadow: 0 20px 40px rgba(108, 92, 231, 0.15); }
+            
+            .image-container { position: relative; height: 300px; background: #f0f0f0; }
+            .main-img { width: 100%; height: 100%; object-fit: cover; }
+            
+            .badge {
+                position: absolute; top: 15px; left: 15px;
+                padding: 6px 15px; border-radius: 30px;
+                color: white; font-size: 0.75rem; font-weight: 600;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+            .badge.top-product { background: var(--primary); }
+            .badge.suggestion { background: var(--secondary); }
+            .badge.flash-sale { background: var(--flash); animation: pulse 2s infinite; }
+            .badge.daily-discover { background: var(--discover); }
+            
+            @keyframes pulse {
+                0% { opacity: 1; }
+                50% { opacity: 0.8; }
+                100% { opacity: 1; }
+            }
+            
+            .product-info { padding: 25px; }
+            h3 {
+                margin: 0 0 15px; font-size: 1.1rem; line-height: 1.4;
+                height: 3.1rem; overflow: hidden; display: -webkit-box;
+                -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+            }
+            
+            .price-box { margin-bottom: 15px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+            .curr-price { color: var(--primary); font-weight: 600; font-size: 1.3rem; }
+            .flash-sale .curr-price { color: var(--flash); }
+            .old-price { color: #95a5a6; text-decoration: line-through; font-size: 0.9rem; }
+            .disc-tag { background: #fff5f5; color: var(--primary); padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+            .flash-sale .disc-tag { color: var(--flash); }
+
+            .stats { display: flex; justify-content: space-between; margin-bottom: 20px; }
+            .sold { font-weight: 600; color: #636e72; font-size: 0.9rem; }
+            .score { color: #ffa502; font-weight: 600; background: #fffaf0; padding: 2px 10px; border-radius: 6px; font-size: 0.9rem; }
+            
+            .gallery { display: flex; gap: 8px; }
+            .gallery img { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; border: 1px solid #eee; }
+            
+            .trends-section {
+                background: white;
+                padding: 40px;
+                border-radius: 20px;
+                margin-top: 80px;
+                margin-bottom: 40px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            }
+            .trends-container { display: flex; flex-wrap: wrap; gap: 12px; }
+            .trend-tag { padding: 8px 20px; background: #f1f2f6; color: var(--secondary); border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.2s; }
+            .trend-tag:hover { background: var(--secondary); color: white; transform: scale(1.05); }
+            
+            @media (max-width: 768px) {
+                h1 { font-size: 2rem; }
+                .grid { grid-template-columns: 1fr; }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Shopee Intel Dashboard</h1>
+                <p class="subtitle">Complete Intelligence Center: All Shopee Channels Decoded</p>
+            </header>
+
+            
+            <div class="category-scroll">
+                
+            <a href="https://shopee.co.id/Elektronik-cat.11044258" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/dcd61dcb7c1448a132f49f938b0cb553" alt="Elektronik">
+                <span>Elektronik</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Makanan-%26-Minuman-cat.11043451" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/7873b8c3824367239efb02d18eeab4f5" alt="Makanan & Minuman">
+                <span>Makanan & Minuman</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Komputer-%26-Aksesoris-cat.11044364" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/id-50009109-0bd6a9ebd0f2ae9b7e8b9ce7d89897d6" alt="Komputer & Aksesoris">
+                <span>Komputer & Aksesoris</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Perawatan-%26-Kecantikan-cat.11043145" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/2715b985ae706a4c39a486f83da93c4b" alt="Perawatan & Kecantikan">
+                <span>Perawatan & Kecantikan</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Handphone-%26-Aksesoris-cat.11044458" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/5230277eefafad8611aaf703d3e99568" alt="Handphone & Aksesoris">
+                <span>Handphone & Aksesoris</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Perlengkapan-Rumah-cat.11043778" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/c1494110e0383780cdea73ed890e0299" alt="Perlengkapan Rumah">
+                <span>Perlengkapan Rumah</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Pakaian-Pria-cat.11042849" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/04dba508f1ad19629518defb94999ef9" alt="Pakaian Pria">
+                <span>Pakaian Pria</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Pakaian-Wanita-cat.11042745" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/6d63cca7351ba54a2e21c6be1721fa3a" alt="Pakaian Wanita">
+                <span>Pakaian Wanita</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Sepatu-Pria-cat.11042985" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/3c8ff51aab1692a80c5883972a679168" alt="Sepatu Pria">
+                <span>Sepatu Pria</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Fashion-Muslim-cat.11042684" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/b98756cdb31eabe3d7664599e24ccc29" alt="Fashion Muslim">
+                <span>Fashion Muslim</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Tas-Pria-cat.11043011" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/47ed832eed0feb62fd28f08c9229440e" alt="Tas Pria">
+                <span>Tas Pria</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Fashion-Bayi-%26-Anak-cat.11043031" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/9251edd6d6dd98855ff5a99497835d9c" alt="Fashion Bayi & Anak">
+                <span>Fashion Bayi & Anak</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Aksesoris-Fashion-cat.11042921" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/1f18bdfe73df39c66e7326b0a3e08e87" alt="Aksesoris Fashion">
+                <span>Aksesoris Fashion</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Ibu-%26-Bayi-cat.11043350" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/4d1673a14c26c8361a76258d78446324" alt="Ibu & Bayi">
+                <span>Ibu & Bayi</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Jam-Tangan-cat.11042900" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/2bdf8cf99543342d4ebd8e1bdb576f80" alt="Jam Tangan">
+                <span>Jam Tangan</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Sepatu-Wanita-cat.11042604" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/id-50009109-a947822064b7a8077b15596c85bd9303" alt="Sepatu Wanita">
+                <span>Sepatu Wanita</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Kesehatan-cat.11043279" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/eb7d583e4b72085e71cd21a70ce47d7a" alt="Kesehatan">
+                <span>Kesehatan</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Tas-Wanita-cat.11042642" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/id-50009109-da8cea4e4705abb4dd935b244668e9dd" alt="Tas Wanita">
+                <span>Tas Wanita</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Hobi-%26-Koleksi-cat.11043572" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/42394b78fac1169d67c6291973a3b132" alt="Hobi & Koleksi">
+                <span>Hobi & Koleksi</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Otomotif-cat.11043660" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/27838b968afb76ca59dd8e8f57ece91f" alt="Otomotif">
+                <span>Otomotif</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Olahraga-%26-Outdoor-cat.11043958" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/b2c24b49fd96704ed80b4f45080bfcac" alt="Olahraga & Outdoor">
+                <span>Olahraga & Outdoor</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Buku-%26-Alat-Tulis-cat.11044123" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/998c7682fd5e7a3563b2ad00aaa4e6f3" alt="Buku & Alat Tulis">
+                <span>Buku & Alat Tulis</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Souvenir-%26-Perlengkapan-Pesta-cat.11116633" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/id-50009109-28b537029726a804da60f448c9083298" alt="Souvenir & Perlengkapan Pesta">
+                <span>Souvenir & Perlengkapan Pesta</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Fotografi-cat.11044588" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/9abe95c0c755968c5114f084ee11b8cb" alt="Fotografi">
+                <span>Fotografi</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Voucher-cat.11044631" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/6e47e2193202b93490bc430ce6732c79" alt="Voucher">
+                <span>Voucher</span>
+            </a>
+            
+            <a href="https://shopee.co.id/Deals-Sekitarmu-cat.11105951" target="_blank" class="category-item">
+                <img src="https://down-id.img.susercontent.com/file/acf31361b27aab4f75735c17d0eeace9" alt="Deals Sekitarmu">
+                <span>Deals Sekitarmu</span>
+            </a>
+            
+            </div>
+            
+
+            
+            <div class="section-title">
+                <h2 style="color: var(--flash)">⚡ Flash Sale Now</h2>
+            </div>
+            <div class="grid">
+                
+            <a href="https://shopee.co.id/product-i.636039857.20976994313" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134201-7qukz-lernz59gtnwdd5" alt="Gantungan Baju JUMBO Anti Karat khusus 12 pcs murah dan hemat - 1 lusin  Hanger Kawat KASTOK PAKAIAN" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Gantungan Baju JUMBO Anti Karat khusus 12 pcs murah dan hemat - 1 lusin  Hanger Kawat KASTOK PAKAIAN</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 10,500</span>
+                    <span class="old-price">Rp 20,000</span>
+                    <span class="disc-tag">-48%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 19,136 terjual</span>
+                            <span class="score">⭐ 4.70</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 636039857.20976994313</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1534698127.41750359446" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk0-m9kilez7jqpu1b" alt="Missbara - Sepatu Pantofel Wanita Paskibra Kulit Sintetis Hitam" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Missbara - Sepatu Pantofel Wanita Paskibra Kulit Sintetis Hitam</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 30,000</span>
+                    <span class="old-price">Rp 120,000</span>
+                    <span class="disc-tag">-75%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 4,125 terjual</span>
+                            <span class="score">⭐ 4.69</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 1534698127.41750359446</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.13766682.40651093832" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbke-m9tvzpmgj0nxcc" alt="Jilbab Instan Bergo Arafah SIZE M & L Jersey Akrilik / Kerudung Bergo Malay Non Pet Premium Terlaris" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Jilbab Instan Bergo Arafah SIZE M & L Jersey Akrilik / Kerudung Bergo Malay Non Pet Premium Terlaris</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 14,611</span>
+                    <span class="old-price">Rp 23,142</span>
+                    <span class="disc-tag">-37%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 8,556 terjual</span>
+                            <span class="score">⭐ 4.70</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 13766682.40651093832</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.983708152.26554873330" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98z-lxi35qb0crai2c" alt="ROK SKIRT CLARA BAHAN HYGET PREMIUM ROK PLISKET SUSUN TERBARU" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>ROK SKIRT CLARA BAHAN HYGET PREMIUM ROK PLISKET SUSUN TERBARU</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 33,400</span>
+                    <span class="old-price">Rp 80,000</span>
+                    <span class="disc-tag">-57%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 29,243 terjual</span>
+                            <span class="score">⭐ 4.42</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 983708152.26554873330</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.829956701.27113127822" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasf-m0xsv42qekio36" alt="Taplak kulkas polos bulu rasfur ukuran 100×50 cm / Alas kulkas bulu rasfur" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Taplak kulkas polos bulu rasfur ukuran 100×50 cm / Alas kulkas bulu rasfur</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 14,850</span>
+                    <span class="old-price">Rp 27,000</span>
+                    <span class="disc-tag">-45%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 7,762 terjual</span>
+                            <span class="score">⭐ 4.71</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 829956701.27113127822</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1364910974.29512808917" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rask-m0sr5s0z1e6k28" alt="Smartwatch y68 bisa ubah walpeper dan Terima Notif Pesan" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Smartwatch y68 bisa ubah walpeper dan Terima Notif Pesan</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 27,500</span>
+                    <span class="old-price">Rp 100,000</span>
+                    <span class="disc-tag">-73%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 70,081 terjual</span>
+                            <span class="score">⭐ 4.42</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 1364910974.29512808917</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.114769182.27314077088" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rase-m1dxuqowsmce20" alt="YC -CELANA KULOT PLISKET LIDI / KULOT PLISKET PREMIUM / BAWAHAN WANITA TERBARU KEKINIAN KOREAN STYLE" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>YC -CELANA KULOT PLISKET LIDI / KULOT PLISKET PREMIUM / BAWAHAN WANITA TERBARU KEKINIAN KOREAN STYLE</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 16,450</span>
+                    <span class="old-price">Rp 35,000</span>
+                    <span class="disc-tag">-53%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 124,818 terjual</span>
+                            <span class="score">⭐ 4.34</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 114769182.27314077088</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.52922719.23447713503" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98o-lkt606brq4uif5" alt="(BISA COD) ORIGINAL SMARTWATCH SERIES 8 ULTRA T800" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>(BISA COD) ORIGINAL SMARTWATCH SERIES 8 ULTRA T800</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 61,275</span>
+                    <span class="old-price">Rp 209,000</span>
+                    <span class="disc-tag">-71%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 51,129 terjual</span>
+                            <span class="score">⭐ 4.56</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 52922719.23447713503</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1119639677.28369058038" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-81ztp-mfkquwu531my12" alt="[Rp9999 4 Pack] GLISSE Tissue Wajah 360 Lembar Tisu Wajah Halus dan Lembut 3 Lapis" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>[Rp9999 4 Pack] GLISSE Tissue Wajah 360 Lembar Tisu Wajah Halus dan Lembut 3 Lapis</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 18,999</span>
+                    <span class="old-price">Rp 41,990</span>
+                    <span class="disc-tag">-55%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 71,321 terjual</span>
+                            <span class="score">⭐ 4.80</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 1119639677.28369058038</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.951947098.22541182942" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-81ztl-mfb8v3s64r2h20" alt="Piringan Cakram Galfer 260mm DISC GALFER CAKRAM FLOATING Breket Beat Vario Mio AEROX NMAX Universal" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Piringan Cakram Galfer 260mm DISC GALFER CAKRAM FLOATING Breket Beat Vario Mio AEROX NMAX Universal</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 190,000</span>
+                    <span class="old-price">Rp 450,000</span>
+                    <span class="disc-tag">-56%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 27,018 terjual</span>
+                            <span class="score">⭐ 4.72</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 951947098.22541182942</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1552139413.41305412601" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0p-mb690d1nz8ymdd" alt="AQQUATTAA Celana Fit And Flare Pants Cutbray Scuba Pinggang Highwaist Bahan Stretch Melar Elastis Kulot Cutbray Scuba" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>AQQUATTAA Celana Fit And Flare Pants Cutbray Scuba Pinggang Highwaist Bahan Stretch Melar Elastis Kulot Cutbray Scuba</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 39,355</span>
+                    <span class="old-price">Rp 120,000</span>
+                    <span class="disc-tag">-67%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 40,317 terjual</span>
+                            <span class="score">⭐ 4.61</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 1552139413.41305412601</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.120894723.29256741686" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-lyei0hi5h8ez98" alt="Sepatu Flatshoes Empuk Nyaman Dipake Terbaru Termurah" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sepatu Flatshoes Empuk Nyaman Dipake Terbaru Termurah</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 36,120</span>
+                    <span class="old-price">Rp 129,000</span>
+                    <span class="disc-tag">-72%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 29,907 terjual</span>
+                            <span class="score">⭐ 4.67</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 120894723.29256741686</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.280731933.15996377865" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasm-m4pm76gjau0o22" alt="TERMURAH... SANDAL DISTRO PRIA/ SANDAL SLIDE/ SANDAL FLAT/ SANDAL SLIDE PRIA / SANDAL SLIP ON PRIA HIGH QUALITY" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>TERMURAH... SANDAL DISTRO PRIA/ SANDAL SLIDE/ SANDAL FLAT/ SANDAL SLIDE PRIA / SANDAL SLIP ON PRIA HIGH QUALITY</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 20,900</span>
+                    <span class="old-price">Rp 23,500</span>
+                    <span class="disc-tag">-11%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 57,859 terjual</span>
+                            <span class="score">⭐ 4.32</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 280731933.15996377865</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.891117459.19092367838" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasa-m2f8wnfmbejm39" alt="COD Terbaru Ultra 8 Smartwatch Free Headset dan Strap Polos ada kalkulator" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>COD Terbaru Ultra 8 Smartwatch Free Headset dan Strap Polos ada kalkulator</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 83,300</span>
+                    <span class="old-price">Rp 200,000</span>
+                    <span class="disc-tag">-58%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 21,903 terjual</span>
+                            <span class="score">⭐ 4.57</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 891117459.19092367838</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1069407756.57500926173" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-821g1-mgqah9qnwg0ce9" alt="[BPOM 2PCS] Cetaphil Gentle Skin Cleanser 500ML Dengan Propylene Glycol Sabun Pembersih Muka Untuk Segala Buy1 Get1" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>[BPOM 2PCS] Cetaphil Gentle Skin Cleanser 500ML Dengan Propylene Glycol Sabun Pembersih Muka Untuk Segala Buy1 Get1</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 60,500</span>
+                    <span class="old-price">Rp 1,356,000</span>
+                    <span class="disc-tag">>90% off</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 233 terjual</span>
+                            <span class="score">⭐ 4.55</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 1069407756.57500926173</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.833738524.44415754379" target="_blank" class="card-link">
+                <div class="product-card flash-sale">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-81ztn-mdzzycxywmiu23" alt="SETELAN ANAK PEREMPUAN 1-10 TAHUN ONE SET STELAN BAJU ANAK PEREMPUAN KANCING CELANA CUTBRAY" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge flash-sale">Flash Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>SETELAN ANAK PEREMPUAN 1-10 TAHUN ONE SET STELAN BAJU ANAK PEREMPUAN KANCING CELANA CUTBRAY</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 38,699</span>
+                    <span class="old-price">Rp 79,998</span>
+                    <span class="disc-tag">-51%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">⚡ 5,700 terjual</span>
+                            <span class="score">⭐ 4.70</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 833738524.44415754379</p>
+                    </div>
+                </div>
+            </a>
+            
+            </div>
+            
+
+            
+            <div class="section-title" style="margin-top: 80px;">
+                <h2 style="color: var(--discover)">✨ Daily Discover (For You)</h2>
+            </div>
+            <div class="grid">
+                
+            <a href="https://shopee.co.id/product-i.286155872.27212894854" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134253-7rfg4-m4b4a9orvqisfb" alt="OMG OH MY GLAM Matte Kiss Lip Cream 3,5gr / Transferproof Lipcream OMG" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>OMG OH MY GLAM Matte Kiss Lip Cream 3,5gr / Transferproof Lipcream OMG</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 21,999</span>
+                    <span class="old-price">Rp 30,000</span>
+                    <span class="disc-tag">-27%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.86</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-8224u-mio9e9pvwy6g81" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rdwg-m0v37wgriag587" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rdvh-m0v37wwavk3o60" alt="gallery"></div>
+                        <p class="id-text">Target: 286155872.27212894854</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.148700842.20881892360" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rask-m2ujmpo0ub4hc3" alt="36 pcs RINSO MOLTO CAIR / RINSO CAIR RENCENGAN 18 ml" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>36 pcs RINSO MOLTO CAIR / RINSO CAIR RENCENGAN 18 ml</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 18,500</span>
+                    <span class="old-price">Rp 25,000</span>
+                    <span class="disc-tag">-26%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.58</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rask-m2ujmpo0ub4hc3" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkc-m6yyr5557vaid3" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r992-lu8bpc6712lk3e" alt="gallery"></div>
+                        <p class="id-text">Target: 148700842.20881892360</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.372489546.27324585099" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134253-824gh-mdwvqbwtwetfd0" alt="Sandal Flat wanita tali kekinian Terbaru Sendal teplek Valen" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sandal Flat wanita tali kekinian Terbaru Sendal teplek Valen</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 12,900</span>
+                    <span class="old-price">Rp 69,999</span>
+                    <span class="disc-tag">-82%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.63</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasm-m5emu2im8hp4a0" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasd-m5emu2im73b617" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasl-m5emu2im739c7b" alt="gallery"></div>
+                        <p class="id-text">Target: 372489546.27324585099</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1414470539.28722502143" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rask-m4k3cgqg4lyyc9" alt="K12 Speaker Bluetooth Karaoke 2Mic Mini Bluetooth Portabel Bluetooth Speaker Microphone Karaoke Set Bluetooth Mini Full bass" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>K12 Speaker Bluetooth Karaoke 2Mic Mini Bluetooth Portabel Bluetooth Speaker Microphone Karaoke Set Bluetooth Mini Full bass</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 50,001</span>
+                    <span class="old-price">Rp 159,000</span>
+                    <span class="disc-tag">-69%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.63</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rask-m4k3cgqg4lyyc9" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasa-m4jr5lewr6h620" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rase-m4k3cgqg37eid0" alt="gallery"></div>
+                        <p class="id-text">Target: 1414470539.28722502143</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1253208133.28470137742" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rfff-m3kecg5pmlajeb" alt="Casing hp OPPO A3X A60 A38 A78 A18 A16 A17 A17K A57 A58 A15 A16K A54 A12 A5S A7 A94 A3S A53 A31 A52 A74 A95 A55 F9 A9 A16S A54S Pink Ribbon Bow Case Caseunique" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Casing hp OPPO A3X A60 A38 A78 A18 A16 A17 A17K A57 A58 A15 A16K A54 A12 A5S A7 A94 A3S A53 A31 A52 A74 A95 A55 F9 A9 A16S A54S Pink Ribbon Bow Case Caseunique</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 11,900</span>
+                    <span class="old-price">Rp 30,000</span>
+                    <span class="disc-tag">-60%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.57</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rfff-m3kecg5pmlajeb" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rfha-m3kecgwcjnc502" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rfg2-m3kechx91lzqcb" alt="gallery"></div>
+                        <p class="id-text">Target: 1253208133.28470137742</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1259490952.29510645260" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rase-m3cecbpnf8ii76" alt="Hijab Segiempat Paris Jadul Varisha Ori Katun 110x110 Cm" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hijab Segiempat Paris Jadul Varisha Ori Katun 110x110 Cm</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 16,999</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.79</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rase-m3cecbpnf8ii76" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-8224u-mieeg49tcbuod4" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-8224w-mihdaoch3q4n5c" alt="gallery"></div>
+                        <p class="id-text">Target: 1259490952.29510645260</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.193987068.7309500241" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/428f6ce951fc043547fa8db76399d234" alt="BASRENG / BAKSO GORENG 100 gr" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>BASRENG / BAKSO GORENG 100 gr</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 6,900</span>
+                    <span class="old-price">Rp 10,000</span>
+                    <span class="disc-tag">-31%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.52</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/428f6ce951fc043547fa8db76399d234" alt="gallery"><img src="https://down-id.img.susercontent.com/file/210dd9d59b3215ffdfd627487c13393d" alt="gallery"><img src="https://down-id.img.susercontent.com/file/8b81a06465275651cf1b51ab8078aaf1" alt="gallery"></div>
+                        <p class="id-text">Target: 193987068.7309500241</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.124292157.5134736385" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkc-m8c1qz9j9bt90e" alt="celana pendek olahraga voly polos cewek belah pinggir/celana cewek olahraga voly (1kg=10pcs)" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>celana pendek olahraga voly polos cewek belah pinggir/celana cewek olahraga voly (1kg=10pcs)</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 12,207</span>
+                    <span class="old-price">Rp 12,330</span>
+                    <span class="disc-tag">-1%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.61</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkc-m8c1qz9j9bt90e" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk4-m78f4uv5e8eebd" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk7-m8c28ypnsniac4" alt="gallery"></div>
+                        <p class="id-text">Target: 124292157.5134736385</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.7208484.29037319296" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkb-maql8iyjpjc42c" alt="Iseven P Crop Top Wanita List Chana Knit Rib" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Iseven P Crop Top Wanita List Chana Knit Rib</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 16,500</span>
+                    <span class="old-price">Rp 99,000</span>
+                    <span class="disc-tag">-83%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.57</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkb-maql8iyjpjc42c" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbka-maql8iytnq5g4c" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbke-maql8iytnqhlc6" alt="gallery"></div>
+                        <p class="id-text">Target: 7208484.29037319296</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1065801517.18983704655" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r991-ll6ly719cb6z56" alt="Tas Selempang Slingbag Kanvas Logo 18x7x15 Cm" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Tas Selempang Slingbag Kanvas Logo 18x7x15 Cm</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 13,500</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.48</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r992-ll6ly7195acra0" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98z-ll6ly71983hna9" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98z-ll6ly7196ox75b" alt="gallery"></div>
+                        <p class="id-text">Target: 1065801517.18983704655</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.272446007.29563788978" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasf-m3r6u6e0ii1v2e" alt="CELANA HOMMY PART 3 KULOT ADEM PIYAMA COTTON PREMIUM MOTIF RAYON KEKINIAN  NYAMAN MUAT BB 30-80 KG BISA C OD / BAYAR DI TEMPAT" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>CELANA HOMMY PART 3 KULOT ADEM PIYAMA COTTON PREMIUM MOTIF RAYON KEKINIAN  NYAMAN MUAT BB 30-80 KG BISA C OD / BAYAR DI TEMPAT</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 34,999</span>
+                    <span class="old-price">Rp 79,999</span>
+                    <span class="disc-tag">-56%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.21</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasf-m3r6u6e0ii1v2e" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasj-m3r6u6e0fowz31" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasl-m18o657kh1npd9" alt="gallery"></div>
+                        <p class="id-text">Target: 272446007.29563788978</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.120505262.23717637113" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134253-7rdvj-mcn9ywn9cszb95" alt="M10 plus powerbank 2000mAh Earphone Headset Wireless Bluetooth Full Bass Stereo Power Bank" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>M10 plus powerbank 2000mAh Earphone Headset Wireless Bluetooth Full Bass Stereo Power Bank</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 25,800</span>
+                    <span class="old-price">Rp 25,801</span>
+                    <span class="disc-tag">-1%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.47</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasc-m2hqjn4n146sd7" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r990-lt7n3swcsqkd0f" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasf-m1x5r0c8depi03" alt="gallery"></div>
+                        <p class="id-text">Target: 120505262.23717637113</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.128213168.23003920701" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-22110-aau6dd7lshjvf7" alt="Square rak dapur rak toilet rak susun serbaguna rak dorong rak salon rak troli 4 tingkat dengan roda" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Square rak dapur rak toilet rak susun serbaguna rak dorong rak salon rak troli 4 tingkat dengan roda</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 26,989</span>
+                    <span class="old-price">Rp 98,900</span>
+                    <span class="disc-tag">-73%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.74</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-22110-aau6dd7lshjvf7" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-22110-c3vx7ocmshjvfe" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-22110-w72xfvimshjvc2" alt="gallery"></div>
+                        <p class="id-text">Target: 128213168.23003920701</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1090093855.24181234039" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134253-7rdwj-mbpnd3oyaz4m10" alt="Pionyx Sepatu Pria Sneakers Sport Fashion Kasual 8117 ( Size 39-43)" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Pionyx Sepatu Pria Sneakers Sport Fashion Kasual 8117 ( Size 39-43)</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 52,999</span>
+                    <span class="old-price">Rp 120,000</span>
+                    <span class="disc-tag">-56%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.39</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lvov52qa9dzqf6" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98x-lvov52m4fhc40b" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98t-lvov52m4l3lwf7" alt="gallery"></div>
+                        <p class="id-text">Target: 1090093855.24181234039</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.404378960.24308397357" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134253-7rdyq-md7cpcj56ldj5b" alt="*Kipas Mini Sanrio / Kipas Portable Mini usb / Kipas Mini Travel" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>*Kipas Mini Sanrio / Kipas Portable Mini usb / Kipas Mini Travel</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 14,112</span>
+                    <span class="old-price">Rp 50,000</span>
+                    <span class="disc-tag">-72%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.74</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rbly-lqgcboy89r96ac" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk8-m8r3wepl9pg175" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rbl6-lp6qqjtyodhz86" alt="gallery"></div>
+                        <p class="id-text">Target: 404378960.24308397357</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.874853553.25397481519" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134253-821dz-mgn5zwdxjwgb31" alt="SCARLETT WHITENING EAU DE PARFUM (EDP) 30ML SERIES ( READY ALL VARIAN AROMA )" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>SCARLETT WHITENING EAU DE PARFUM (EDP) 30ML SERIES ( READY ALL VARIAN AROMA )</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 8,998</span>
+                    <span class="old-price">Rp 9,000</span>
+                    <span class="disc-tag">-1%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.27</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-825b6-mfvmp9xkiyob33" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-8259s-mfvmpa5843rica" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-8258v-mfvmpabpird45e" alt="gallery"></div>
+                        <p class="id-text">Target: 874853553.25397481519</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.1434582005.28426816769" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk6-m6gq4g3aqelde9" alt="hancur harga Topi Pria Keren Original Murah kasual Distro Baseball Terbaru Korea/Topi Original Import Pria/Wanita" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>hancur harga Topi Pria Keren Original Murah kasual Distro Baseball Terbaru Korea/Topi Original Import Pria/Wanita</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 13,500</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.41</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk6-m6gq4g3aqelde9" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk5-m6gq4g3am6w1c2" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk6-m6gq4g3anlgh78" alt="gallery"></div>
+                        <p class="id-text">Target: 1434582005.28426816769</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.9688403.7640111253" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/5591016f6b54e1e642a7a09795f1ae06" alt="Gelang Padat 15-20 gr Emas LM Asli 24K. Kadar 99,9%," class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Gelang Padat 15-20 gr Emas LM Asli 24K. Kadar 99,9%,</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 25,500,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/5591016f6b54e1e642a7a09795f1ae06" alt="gallery"><img src="https://down-id.img.susercontent.com/file/d512d80dc6cddff8978eeb4762638500" alt="gallery"></div>
+                        <p class="id-text">Target: 9688403.7640111253</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.239560421.26101283205" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134253-8225d-mhmog6drr4sl93" alt="Tory Burch Kira sport sandal" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Tory Burch Kira sport sandal</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 4,800,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r991-lvvdgmczxly39c" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98z-lvvdgmczxm6l77" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98z-lvvpr8j262p65f" alt="gallery"></div>
+                        <p class="id-text">Target: 239560421.26101283205</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.992459996.22143911373" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7qul0-lhdjidj2a75751" alt="PLISKET TAKE ALL" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>PLISKET TAKE ALL</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 20,000,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 992459996.22143911373</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.178568669.24560772573" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbke-m7hkk82kt23w9a" alt="Adelle Jewellery - Brillia Ring - Cincin Emas Berlian" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Adelle Jewellery - Brillia Ring - Cincin Emas Berlian</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 17,940,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbke-m7hkk82kt23w9a" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk8-m7hkk82kugoc7c" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98x-lqx3vb063xhi18" alt="gallery"></div>
+                        <p class="id-text">Target: 178568669.24560772573</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.6570617.28313808698" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasi-m1994ls89fxfb5" alt="borongan Paket aksesoris ON SALE" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>borongan Paket aksesoris ON SALE</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 5,000,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 6570617.28313808698</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.480538318.27457829468" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd6i-m6z8ulnpnjzm92" alt="CF R666 Sandal Slip On Wanita Fashion Shoes Casual With Box Bisa Cod" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>CF R666 Sandal Slip On Wanita Fashion Shoes Casual With Box Bisa Cod</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 73,550</span>
+                    <span class="old-price">Rp 129,000</span>
+                    <span class="disc-tag">-43%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.86</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd6i-m6z8ulnpnjzm92" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk4-m8ln61lppnnm62" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd6h-m6z8ul86bno283" alt="gallery"></div>
+                        <p class="id-text">Target: 480538318.27457829468</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.178568669.21811613064" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98y-m02umguojxmw65" alt="Adelle Jewellery - Britanica Rose D' Amour Diamond Ring - Cincin Emas Berlian" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Adelle Jewellery - Britanica Rose D' Amour Diamond Ring - Cincin Emas Berlian</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 25,490,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98y-m02umguojxmw65" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98v-m02umguolc7c68" alt="gallery"><img src="https://down-id.img.susercontent.com/file/fa7ac3d005d6708e9c2da038caba8440" alt="gallery"></div>
+                        <p class="id-text">Target: 178568669.21811613064</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.24824980.14893223745" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-22090-baqqr3627vhv6a" alt="Mindray DP10 Power DP-10 2D Doppler Dengan Probe Convex" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mindray DP10 Power DP-10 2D Doppler Dengan Probe Convex</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 30,500,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-22090-baqqr3627vhv6a" alt="gallery"><img src="https://down-id.img.susercontent.com/file/019f42e65e23fb64dce560ef21f0f1a6" alt="gallery"></div>
+                        <p class="id-text">Target: 24824980.14893223745</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.427116774.29119443917" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasi-m3boo0d0579rb6" alt="Sougayilang 1.8M Spinning Joran Pancing Set 5.2:1 Reel Pancing 5 Warna Tersesuai Untuk Memancing Tanah" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sougayilang 1.8M Spinning Joran Pancing Set 5.2:1 Reel Pancing 5 Warna Tersesuai Untuk Memancing Tanah</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 69,999</span>
+                    <span class="old-price">Rp 99,999</span>
+                    <span class="disc-tag">-30%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.69</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasi-m3boo0d0579rb6" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rasg-m3ac20dmtzmna1" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rase-m3ac20dmve7384" alt="gallery"></div>
+                        <p class="id-text">Target: 427116774.29119443917</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.488743384.24366674218" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134253-824ic-mf2a9wujx4i793" alt="SET MELAYU AKAD" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>SET MELAYU AKAD</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 2,850,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk1-ma3mtto5iumq1c" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbka-ma3mtto5k9irb7" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkc-ma3mttslayi837" alt="gallery"></div>
+                        <p class="id-text">Target: 488743384.24366674218</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.25987247.21786624582" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbka-m6rzeu1306ulf3" alt="Mubeng - Gurkha Pants Semi Wool S-XXL Fashionable" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mubeng - Gurkha Pants Semi Wool S-XXL Fashionable</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 166,249</span>
+                    <span class="old-price">Rp 175,000</span>
+                    <span class="disc-tag">-5%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.81</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk1-m6f3abwudbho49" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk1-m6rzeu135t4d6d" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk9-m6rzeu138m99f2" alt="gallery"></div>
+                        <p class="id-text">Target: 25987247.21786624582</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.263004005.27638693451" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0r-mc7m5mxf5cip43" alt="Mobil Aki Limosin 48volt Brushless Ban Angin Musik Bluetooth" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mobil Aki Limosin 48volt Brushless Ban Angin Musik Bluetooth</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 18,500,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0r-mc7m5mxf5cip43" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0k-mc7m5mx4yq1d59" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0o-mc7m5mx4xbgx34" alt="gallery"></div>
+                        <p class="id-text">Target: 263004005.27638693451</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.9688403.11810420110" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134253-7rep4-m84upoddhy5y4f" alt="Kalung V Matahari. Emas LM 24K Kadar 999,9%." class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kalung V Matahari. Emas LM 24K Kadar 999,9%.</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 25,500,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 9688403.11810420110</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.234480918.19845885795" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/fd2947955e9e2652cc5f2be09ee05ed8" alt="PAKET CCTV HIKVISION COLORVU 2MP 8 CHANNEL 6 KAMERA COLORFUL" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>PAKET CCTV HIKVISION COLORVU 2MP 8 CHANNEL 6 KAMERA COLORFUL</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 5,100,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.90</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-8224p-mi4qhles89vq76" alt="gallery"><img src="https://down-id.img.susercontent.com/file/c965ca77607f454b352b5e09a580c922" alt="gallery"><img src="https://down-id.img.susercontent.com/file/fd2947955e9e2652cc5f2be09ee05ed8" alt="gallery"></div>
+                        <p class="id-text">Target: 234480918.19845885795</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.258266328.22857488197" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98q-lonmi666zuhv3b" alt="GOODETHICS - ONE SET ELEGANT JAS PRIA" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>GOODETHICS - ONE SET ELEGANT JAS PRIA</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 1,153,330</span>
+                    <span class="old-price">Rp 1,189,000</span>
+                    <span class="disc-tag">-3%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.89</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-lonlvae8hr3v90" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98t-lonmef1oqgrwf1" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98x-lonmef1orvcc83" alt="gallery"></div>
+                        <p class="id-text">Target: 258266328.22857488197</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.54085967.12695888272" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134253-825a4-mge05mpct8gca1" alt="GARMIN GPSMAP 585 Plus - Transducer GT15M-TH - Peta Laut. Baru Ori Garansi  2 Tahun" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>GARMIN GPSMAP 585 Plus - Transducer GT15M-TH - Peta Laut. Baru Ori Garansi  2 Tahun</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 14,355,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98o-ll097ddfash7da" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk3-m9tpn3xnoj7768" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk0-m9tpn3xnoivmef" alt="gallery"></div>
+                        <p class="id-text">Target: 54085967.12695888272</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.120505262.40707655913" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0i-mbwcod2zdyc46f" alt="Kipas Angin Portable Mini Genggam Unitech Turbo Fan 2000mAh T10 kipas mini portable USB" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kipas Angin Portable Mini Genggam Unitech Turbo Fan 2000mAh T10 kipas mini portable USB</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 19,997</span>
+                    <span class="old-price">Rp 19,998</span>
+                    <span class="disc-tag">-1%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.49</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0i-mbwcod2zdyc46f" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0s-mbwcod2z9qms3c" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0j-mbwcod2z6xhwe0" alt="gallery"></div>
+                        <p class="id-text">Target: 120505262.40707655913</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.120844674.23455713446" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98t-llzuv43bv5akd9" alt="100 paket lokpolok skincare" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>100 paket lokpolok skincare</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 16,000,000</span>
+                    
+                    
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 5.00</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98t-llzuv43bv5akd9" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98w-llzuv43bv5boc5" alt="gallery"></div>
+                        <p class="id-text">Target: 120844674.23455713446</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/product-i.19618109.1908346339" target="_blank" class="card-link">
+                <div class="product-card daily-discover">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7qul3-li5wcaw5vxwqd3" alt="Selimut Bulu Dewasa Halus 150x200 Motif Paling Keren Terlaris Termurah Asriyasashii Berkualitas" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge daily-discover">Daily Discover</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Selimut Bulu Dewasa Halus 150x200 Motif Paling Keren Terlaris Termurah Asriyasashii Berkualitas</h3>
+                        
+                <div class="price-box">
+                    <span class="curr-price">Rp 41,900</span>
+                    <span class="old-price">Rp 49,500</span>
+                    <span class="disc-tag">-15%</span>
+                </div>
+                
+                        <div class="stats">
+                            <span class="sold">✨ Rekomendasi</span>
+                            <span class="score">⭐ 4.53</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qul3-li5wcaw5vxwqd3" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qukx-li5bslqofdb570" alt="gallery"><img src="https://down-id.img.susercontent.com/file/09c38b295d7acbcc5953d919425597ac" alt="gallery"></div>
+                        <p class="id-text">Target: 19618109.1908346339</p>
+                    </div>
+                </div>
+            </a>
+            
+            </div>
+            
+
+            <div class="section-title" style="margin-top: 80px;">
+                <h2 style="color: var(--primary)">🔥 Top Products</h2>
+            </div>
+            <div class="grid">
+                
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_c83ff9c5ed18ab66d8ae09a2b65d3c54%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkb-m6hqhepi7u44fa" alt="Celana Cutbray" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Celana Cutbray</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 257,475 terjual</span>
+                            <span class="score">⭐ 0.18</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkb-m6hqhepi7u44fa" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk8-maqf285qyeah63" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk4-m6cbaw2ixmki57" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_c83ff9c5ed18ab66d8ae09a2b65d3c54</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_75606719faccf94a7832670b8ea4572d%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7qul7-lhskkueyt76xbc" alt="Tempat Makan Lunch Box" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Tempat Makan Lunch Box</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 159,726 terjual</span>
+                            <span class="score">⭐ 0.15</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qul7-lhskkueyt76xbc" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qul8-lhzz7rz5cn0ff2" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98r-lq1gbzx3fiin39" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_75606719faccf94a7832670b8ea4572d</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_1f00b5a2693bfc1097b8fc392e864f20%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/93167c7e94cfff22f09a49c155300a46" alt="Hanasui Lip Cream" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hanasui Lip Cream</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 185,807 terjual</span>
+                            <span class="score">⭐ 0.14</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/93167c7e94cfff22f09a49c155300a46" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7quky-lhpmkzoq2y3i0c" alt="gallery"><img src="https://down-id.img.susercontent.com/file/e78f68c5d8237c8b69cb52e6eda7a781" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_1f00b5a2693bfc1097b8fc392e864f20</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_a9f9d14ee12ad64b54c089fe8bc2156b%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rdvm-m15rxphwzdhma0" alt="Celana Kulot High Waist Wanita" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Celana Kulot High Waist Wanita</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 179,963 terjual</span>
+                            <span class="score">⭐ 0.10</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rdvm-m15rxphwzdhma0" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkb-m84zpdsclpfvfc" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rau3-mao3w8x0itlv1e" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_a9f9d14ee12ad64b54c089fe8bc2156b</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_8c3eb1dde064eaee5350bc6fd88d067e%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98r-lv2pdo9fnyhj70" alt="Hijab Bergo" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hijab Bergo</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 190,746 terjual</span>
+                            <span class="score">⭐ 0.09</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98r-lv2pdo9fnyhj70" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98p-lz77u6gg3yl7e4" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98q-ln8lan3vx8cvdd" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_8c3eb1dde064eaee5350bc6fd88d067e</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_4bec88ec17a0abfb76d32d93750cbec8%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7qul1-lha2lkp58wxfa8" alt="Celana Highwaist" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Celana Highwaist</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 201,024 terjual</span>
+                            <span class="score">⭐ 0.09</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qul1-lha2lkp58wxfa8" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lq758jpgf30m60" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98q-lpsdo5jjan3z37" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_4bec88ec17a0abfb76d32d93750cbec8</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_1fb3167116e14d8b25c6bf16ec259039%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7qul4-lidud2hva6loe4" alt="Pashmina" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Pashmina</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 214,105 terjual</span>
+                            <span class="score">⭐ 0.09</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qul4-lidud2hva6loe4" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-23020-72pvsdmditnvf3" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-23020-z5gx6uxxshnvc4" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_1fb3167116e14d8b25c6bf16ec259039</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_9f605e6f9cf76d6e4190f0127520a8db%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/77f89d22f356634263c5d0fc1d0659e0" alt="Hijab Sport" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hijab Sport</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 283,847 terjual</span>
+                            <span class="score">⭐ 0.09</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/77f89d22f356634263c5d0fc1d0659e0" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-lxv6wliyxeei35" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98q-lozba0prkdq266" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_9f605e6f9cf76d6e4190f0127520a8db</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_4cb5d2759754a2d097b82265df99e708%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/7386b60509be622395a31159102f8e9b" alt="Bibit Benih" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Bibit Benih</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 298,896 terjual</span>
+                            <span class="score">⭐ 0.09</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/7386b60509be622395a31159102f8e9b" alt="gallery"><img src="https://down-id.img.susercontent.com/file/96e5b54eca5c021748992dc1ad89c505" alt="gallery"><img src="https://down-id.img.susercontent.com/file/df481dff2c505cf66a4b1a2d7f3b7802" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_4cb5d2759754a2d097b82265df99e708</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_edf261239359ae1b78d629280a927031%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98x-lw85id7879ln50" alt="Jilbab Bergo Sport" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Jilbab Bergo Sport</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 301,947 terjual</span>
+                            <span class="score">⭐ 0.09</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98x-lw85id7879ln50" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-lxv6wliyxeei35" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134201-23030-n6rxxu3fi5nv04" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_edf261239359ae1b78d629280a927031</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_da329d86b0142688477b77efe5439a19%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7qukx-lhgl6p3e8qno9a" alt="Hijab Instan Bergo" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hijab Instan Bergo</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 164,780 terjual</span>
+                            <span class="score">⭐ 0.09</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qukx-lhgl6p3e8qno9a" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98w-lnmpdt637bb5ff" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r992-lnds8gbsejra36" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_da329d86b0142688477b77efe5439a19</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_ddd0bef9fa4b424cc121e7c182b69e17%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk9-m6fq9ci7wgbx77" alt="Kerudung" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kerudung</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 299,388 terjual</span>
+                            <span class="score">⭐ 0.08</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk9-m6fq9ci7wgbx77" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98r-lzxjtc5teuamce" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0s-mcf1xj73a5ole9" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_ddd0bef9fa4b424cc121e7c182b69e17</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_5328239eb7d7516b286c4df6d10ef3d2%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7qul8-lh4d4i5t68yi2e" alt="Sunscreen Gel" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sunscreen Gel</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 185,261 terjual</span>
+                            <span class="score">⭐ 0.08</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qul8-lh4d4i5t68yi2e" alt="gallery"><img src="https://down-id.img.susercontent.com/file/3821668152308ddc1f55b14b67bf4d72" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkb-m8a623xvkmk8b2" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_5328239eb7d7516b286c4df6d10ef3d2</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_b05f62046ff7e5a8a2906f1ea4f9698b%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/b098185e2c364670934322f1938da901" alt="Basreng Kiloan" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Basreng Kiloan</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 135,821 terjual</span>
+                            <span class="score">⭐ 0.07</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/b098185e2c364670934322f1938da901" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-22100-hhigl2khhziv61" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-23020-gzw34c9ah1mv25" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_b05f62046ff7e5a8a2906f1ea4f9698b</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_5c40e166cb96931e9c2a4e3850e7adca%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7qukz-lkhl3d6sqoih4a" alt="Sunscreen" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sunscreen</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 183,204 terjual</span>
+                            <span class="score">⭐ 0.07</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qukz-lkhl3d6sqoih4a" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qukw-lhmwc3edj7xj5b" alt="gallery"><img src="https://down-id.img.susercontent.com/file/3821668152308ddc1f55b14b67bf4d72" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_5c40e166cb96931e9c2a4e3850e7adca</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_0a640bccf7e8dad35287573d058e1e2a%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-22110-bsyubpflryjv19" alt="Hijab Paris Premium" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hijab Paris Premium</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 546,193 terjual</span>
+                            <span class="score">⭐ 0.07</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-22110-bsyubpflryjv19" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7quky-lhmh5hi3wp9w04" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk2-m7ah68gywvx1e3" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_0a640bccf7e8dad35287573d058e1e2a</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_a7447f326af679a19d295864502c4271%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd68-lvp0zs004xi33c" alt="Kutek Halal" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kutek Halal</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 209,436 terjual</span>
+                            <span class="score">⭐ 0.07</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd68-lvp0zs004xi33c" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd4b-lvbkhkli58oud3" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd40-lv30j51zk2kff2" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_a7447f326af679a19d295864502c4271</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_7793b614dce711005f346781d971abca%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98o-lxmswso3e1imec" alt="Baby Wipes" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Baby Wipes</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 184,768 terjual</span>
+                            <span class="score">⭐ 0.06</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98o-lxmswso3e1imec" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98q-lxmbafoe8zjxd3" alt="gallery"><img src="https://down-id.img.susercontent.com/file/sg-11134201-22120-5wrt1l3e4wkva4" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_7793b614dce711005f346781d971abca</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_5c2106433fc54faa0a108d02dd88b543%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7qul2-ljb1rrth8up6ce" alt="Lip Cream" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Lip Cream</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 413,499 terjual</span>
+                            <span class="score">⭐ 0.06</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qul2-ljb1rrth8up6ce" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-ln94wf0kiymvf6" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qul4-lhpnzm7wy3bv19" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_5c2106433fc54faa0a108d02dd88b543</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/top_products?catId=ID_MPI_V2_a8b8b64edb0b6a1d9a7e2ed6a510f6ab%3Atop_sold" target="_blank" class="card-link">
+                <div class="product-card top-product">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7qul5-limhen3kswbnb1" alt="Buku Tulis" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge top-product">Top Product</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Buku Tulis</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">🔥 306,024 terjual</span>
+                            <span class="score">⭐ 0.05</span>
+                        </div>
+                        <div class="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qul5-limhen3kswbnb1" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7qul2-limhubeyzrzeb1" alt="gallery"><img src="https://down-id.img.susercontent.com/file/id-11134207-7r98z-lpkiarskvbxcee" alt="gallery"></div>
+                        <p class="id-text">Target: ID_MPI_V2_a8b8b64edb0b6a1d9a7e2ed6a510f6ab</p>
+                    </div>
+                </div>
+            </a>
+            
+            </div>
+
+            
+            <div class="section-title" style="margin-top: 80px;">
+                <h2 style="color: var(--secondary)">🔍 Market Suggestions</h2>
+            </div>
+            <div class="grid">
+                
+            <a href="https://shopee.co.id/search?keyword=Celana%20Pants" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0t-mdtajus2plbj67" alt="Celana Pants" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Celana Pants</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.01</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 55450457075</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Dompet%20Remaja%20Wanita%20Korea%20Kekinian" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rfg8-m9i7ouu2t0o71e" alt="Dompet Remaja Wanita Korea Kekinian" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dompet Remaja Wanita Korea Kekinian</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.04</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 28336377778</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=iPhone%2013%20128%20Ibox" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0o-mdr9w5svr3xw65" alt="iPhone 13 128 Ibox" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>iPhone 13 128 Ibox</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.01</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 11764863710</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Tas%20Coraldaisy%20Official%20Store" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0r-md9xjcpyv3mgd5" alt="Tas Coraldaisy Official Store" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Tas Coraldaisy Official Store</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.01</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 49453010586</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Tas%20Wanita" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbka-m8a5356xod8xa6" alt="Tas Wanita" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Tas Wanita</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.04</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 40756970130</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Baju%20ORI" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkd-m6xtfq8snrwpc7" alt="Baju ORI" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Baju ORI</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.01</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 52152800113</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Botol%20Minum%20Stainless%20Tahan%20Dingin%20Dan%20Panas" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0t-md8pw3bzm59j26" alt="Botol Minum Stainless Tahan Dingin Dan Panas" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Botol Minum Stainless Tahan Dingin Dan Panas</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.01</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 54051443619</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Glad2glow%20Perfect%20Cover%20Cushion" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk9-m9qzezv3x44zee" alt="Glad2glow Perfect Cover Cushion" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Glad2glow Perfect Cover Cushion</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.04</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 29905930406</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Kipas%20Angin%20Portable%20Goojodoq" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rdw9-mcqjkg4zg2jq5c" alt="Kipas Angin Portable Goojodoq" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kipas Angin Portable Goojodoq</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.01</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 27365446848</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Basreng%201%20Kilo" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk9-m9kmk6y1sgel06" alt="Basreng 1 Kilo" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Basreng 1 Kilo</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.01</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 43667552320</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Sandal" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-lx0txh4fovccbb" alt="Sandal" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sandal</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.04</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 57303433695</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Sandal%20Selop%20Pria%20Terbaru%202025" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd4x-m6rpl97i1y8946" alt="Sandal Selop Pria Terbaru 2025" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sandal Selop Pria Terbaru 2025</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.01</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 53753561254</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Hand%20Body%20Pemutih%20Badan%20Permanen%20BPOM%20100%25%20ORI" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk0-m7q76gzdcia844" alt="Hand Body Pemutih Badan Permanen BPOM 100% ORI" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hand Body Pemutih Badan Permanen BPOM 100% ORI</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.01</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 41018618061</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://shopee.co.id/search?keyword=Sedal%20Cewek%20Kekinian" target="_blank" class="card-link">
+                <div class="product-card suggestion">
+                    <div class="image-container">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0m-mbmitls3x6ti53" alt="Sedal Cewek Kekinian" class="main-img" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="badge suggestion">Suggestion</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sedal Cewek Kekinian</h3>
+                        
+                        <div class="stats">
+                            <span class="sold">✨ Populer</span>
+                            <span class="score">⭐ 0.04</span>
+                        </div>
+                        
+                        <p class="id-text">Target: 41906730804</p>
+                    </div>
+                </div>
+            </a>
+            
+            </div>
+            
+
+            
+            <div class="trends-section">
+                <div class="section-title" style="margin-top: 0; border: none;">
+                    <h2 style="color: var(--accent)">📈 Market Trends & SEO Keywords</h2>
+                </div>
+                <div class="trends-container">
+                    <a href="https://shopee.co.id/list/Capcut/Pro" target="_blank" class="trend-tag">#Capcut Pro</a><a href="https://shopee.co.id/list/TV" target="_blank" class="trend-tag">#TV</a><a href="https://shopee.co.id/list/Net%20Speed%20Monitor" target="_blank" class="trend-tag">#Net Speed Monitor</a><a href="https://shopee.co.id/list/Smart%20TV" target="_blank" class="trend-tag">#Smart TV</a><a href="https://shopee.co.id/list/TV/55" target="_blank" class="trend-tag">#TV 55</a><a href="https://shopee.co.id/list/Sepeda/Listrik" target="_blank" class="trend-tag">#Sepeda Listrik</a><a href="https://shopee.co.id/list/Akun/Tiktok/Followers%20Aktif" target="_blank" class="trend-tag">#Akun Tiktok Followers Aktif</a><a href="https://shopee.co.id/list/Nokia/X200/Ultra" target="_blank" class="trend-tag">#Nokia X200 Ultra</a><a href="https://shopee.co.id/list/LED/43" target="_blank" class="trend-tag">#LED 43</a><a href="https://shopee.co.id/list/TV/40%20Inch" target="_blank" class="trend-tag">#TV 40 Inch</a><a href="https://shopee.co.id/list/IPhone/13/IBox" target="_blank" class="trend-tag">#IPhone 13 IBox</a><a href="https://shopee.co.id/list/Poco/X7%20Pro" target="_blank" class="trend-tag">#Poco X7 Pro</a><a href="https://shopee.co.id/list/TV/24" target="_blank" class="trend-tag">#TV 24</a><a href="https://shopee.co.id/list/Mic/Wireless" target="_blank" class="trend-tag">#Mic Wireless</a><a href="https://shopee.co.id/list/SSD/External" target="_blank" class="trend-tag">#SSD External</a><a href="https://shopee.co.id/list/TV/Sony/85%20Inch" target="_blank" class="trend-tag">#TV Sony 85 Inch</a><a href="https://shopee.co.id/list/Samsung/Smart%20Tv%2032%20Inch/Harga" target="_blank" class="trend-tag">#Samsung Smart Tv 32 Inch Harga</a><a href="https://shopee.co.id/list/Monitor/4K" target="_blank" class="trend-tag">#Monitor 4K</a><a href="https://shopee.co.id/list/Dildo/Pria" target="_blank" class="trend-tag">#Dildo Pria</a><a href="https://shopee.co.id/list/Monitor/Bekas" target="_blank" class="trend-tag">#Monitor Bekas</a><a href="https://shopee.co.id/list/rok%20mocca/baju" target="_blank" class="trend-tag">#rok mocca baju</a><a href="https://shopee.co.id/list/Modena/kompor%20tanam%202%20tungku" target="_blank" class="trend-tag">#Modena kompor tanam 2 tungku</a><a href="https://shopee.co.id/list/sosis%20bakar/kecil/panjang" target="_blank" class="trend-tag">#sosis bakar kecil panjang</a><a href="https://shopee.co.id/list/mio%20merah/marun/modifikasi" target="_blank" class="trend-tag">#mio merah marun modifikasi</a><a href="https://shopee.co.id/list/modifikasi%20vixion/old/merah" target="_blank" class="trend-tag">#modifikasi vixion old merah</a><a href="https://shopee.co.id/list/Api/kompor%20gas/kecil" target="_blank" class="trend-tag">#Api kompor gas kecil</a><a href="https://shopee.co.id/list/Civic/Turbo/modifikasi" target="_blank" class="trend-tag">#Civic Turbo modifikasi</a><a href="https://shopee.co.id/list/Passport/rok" target="_blank" class="trend-tag">#Passport rok</a><a href="https://shopee.co.id/list/modifikasi%20beat%20esp" target="_blank" class="trend-tag">#modifikasi beat esp</a><a href="https://shopee.co.id/list/AHA/Whitening/body%20lotion" target="_blank" class="trend-tag">#AHA Whitening body lotion</a>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+    </html>
+    
